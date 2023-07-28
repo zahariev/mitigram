@@ -1,0 +1,12 @@
+{
+    "COMMON": {
+        "LOGOUT": "Logout",
+        "TM": "2023 All Rights Reserved",
+        "VALIDATORS": {
+            "REQUIRED": "This field is required"
+        }
+    },
+    "USER_DETAILS": {
+        "MENU_LINK": "User Details"
+    }
+}
