@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { DrawerState, SidebarSettings, TREE_DATA } from './models/main';
+import { ModeSwitcherService } from 'src/app/shared/services/mode-switcher.service';
 
 @Component({
   selector: 'app-default',
