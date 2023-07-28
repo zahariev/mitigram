@@ -1,0 +1,50 @@
+<mat-drawer-container
+    [hasBackdrop]="(sideBarOpen.left&&leftSettings.hasBackdrop)||(rightSettings.hasBackdrop&&sideBarOpen.right)"
+>
+    <mat-drawer
+        id="leftDrawer"
+        [mode]="leftSettings.mode"
+        position="start"
+        [disableClose]="leftSettings.disableClose"
+        [class.menu-open]="sideBarOpen.left"
+        [style.width]="sideBarOpen.left?leftSettings.maxWidth:leftSettings.minWidth"
+        opened
+    >
+        <ng-content select="[drawerLeft]"></ng-content>
+        <button
+            *ngIf="sideBarOpen.left"
+            mat-icon-button
+            class="closeBarBtn left"
+            (click)="toggleSideBar('left')"
+        >
+            <mat-icon class="mat-icon-rtl-mirror">keyboard_arrow_left</mat-icon>
+        </button>
+    </mat-drawer>
+
+    <mat-drawer
+        id="rightDrawer"
+        [mode]="rightSettings.mode"
+        opened
+        position="end"
+        [disableClose]="rightSettings.disableClose"
+        [class.menu-open]="sideBarOpen.right"
+        [style.width]="sideBarOpen.right?rightSettings.maxWidth:rightSettings.minWidth"
+    >
+        <ng-content select="[drawerRight]"></ng-content>
+        <button
+            *ngIf="sideBarOpen.right"
+            mat-icon-button
+            class="closeBarBtn right"
+            (click)="toggleSideBar('right')"
+        >
+            <mat-icon class="mat-icon-rtl-mirror">keyboard_arrow_right</mat-icon>
+        </button>
+    </mat-drawer>
+
+    <mat-drawer-content
+        [style.padding-left]="leftSettings.mode!=='over'?0:leftSettings.minWidth"
+        [style.padding-right]="rightSettings.mode!=='over'?0:rightSettings.minWidth"
+    >
+        <ng-content></ng-content>
+    </mat-drawer-content>
+</mat-drawer-container>

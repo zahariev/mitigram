@@ -1,0 +1,57 @@
+.mat-toolbar {
+    position: absolute;
+    // background-color: #a50041 !important;
+    z-index: 0;
+    top: 0px;
+
+    /*
+    * 50px is the height of the header
+    */
+    min-height: var(--header-height);
+    height: var(--header-height);
+
+    .mat-toolbar-row {
+        // height: auto;
+        height: var(--header-height);
+
+        align-items: center;
+        // padding-bottom: calc(var(--header-height) - 2.2em);
+        padding-left: 0px;
+        padding-right: 2px;
+        padding-top: 0.2%;
+    }
+}
+
+app-search {
+    position: relative;
+    margin-left: 65%;
+}
+
+:host ::ng-deep {
+    input[type='search'] {
+        outline: none;
+        background-color: none;
+        color: var(--header-text-active-color);
+    }
+
+    .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+        color: var(--header-text-active-color);
+    }
+    app-tab-header {
+        position: absolute;
+        bottom: 0px;
+        left: 50px;
+    }
+    .mat-mdc-tab-header {
+        width: 70vw !important;
+    }
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+#language_slider {
+    margin-bottom: 10px;
+    margin-left: 20px;
+}

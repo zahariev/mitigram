@@ -1,0 +1,45 @@
+:host {
+    height: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    padding: 5px 6px;
+    font-size: 0.7em;
+}
+
+app-header {
+    z-index: 1;
+}
+
+app-drawer {
+    top: var(--header-height);
+    height: calc(100vh - var(--header-height));
+    position: relative;
+}
+
+app-tree-menu {
+    // icon color
+    // fallback to font-color if not set
+
+    --menu-font-color: var(--text-primary-color);
+    // --menu-icon-color:
+
+    --menu-hover-font-color: white;
+    // --menu-hover-icon-color:
+
+    --menu-active-font-color: white; // var(--light-bg-color);
+    // --menu-active-icon-color:
+
+    // bg color
+    --menu-hover-color-bg: var(--primary-color);
+    --menu-active-color-bg: var(--primary-color);
+    // --menu-active-hover-bg: var(--primary-color);
+}
+
+#themeToggleBtn {
+    position: absolute;
+    bottom: 15px;
+}
+

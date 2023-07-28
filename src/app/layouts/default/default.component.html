@@ -1,0 +1,35 @@
+<app-header (toggleSideBarForMe)="sideBarToggler($event)"></app-header>
+
+<app-drawer
+    [leftSettings]="leftSidebarSettings"
+    [rightSettings]="rightSidebarSettings"
+    [toggleSide]="sidebarToggle$"
+    (drawerState)="updateDrawerState($event)"
+>
+    <ng-container drawerLeft>
+        <app-tree-menu
+            [treeData]="treeData"
+            (expandTree)="sideBarToggler('left')"
+            [drawerStateOpen]="drawerState.left"
+        ></app-tree-menu>
+        <button id="themeToggleBtn" class="bottom" mat-icon-button (click)="toggleTheme()">
+            <mat-icon class="themeIcon" *ngIf="modeSwitcherService.isDarkMode(); else lightMode">
+                light_mode
+            </mat-icon>
+            <ng-template #lightMode>
+                <mat-icon class="themeIcon"> dark_mode </mat-icon>
+            </ng-template>
+        </button>
+        <footer>
+            <span id="tradeMark"> &copy; {{'COMMON.TM' | translate}} </span>
+            <span class="version"> v0.1.4</span>
+        </footer>
+    </ng-container>
+
+    <ng-container drawerRight>
+        <div>Right Menu</div>
+    </ng-container>
+
+    <router-outlet />
+</app-drawer>
+

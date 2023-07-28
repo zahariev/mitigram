@@ -1,0 +1,65 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div class="logo">
+      <button
+        mat-icon-button
+        class="mat-elevation-z0 sidebar-toggle"
+        (click)="toggleSidebar('left')"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <!-- <img alt="Logo" src="./assets/Logo.jpg" width="70%" [routerLink]="['/itemboard']" /> -->
+    </div>
+
+    <div class="spacer"></div>
+
+    <button
+      id="userMenuBtn"
+      mat-button
+      [matMenuTriggerFor]="menu"
+      (click)="menuClick()"
+    >
+      <span id="username"> {{ user.firstName }}</span>
+      <mat-icon>person_outline</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['user-profile']">
+        <mat-icon>settings</mat-icon>
+        {{ "USER_DETAILS.MENU_LINK" | translate }}
+      </button>
+      <div id="language_slider">
+        bg
+        <mat-slide-toggle
+          [checked]="isEnglish"
+          (change)="toggleLanguage($event)"
+          >{{ defaultLanguage }}</mat-slide-toggle
+        >
+      </div>
+      <mat-divider></mat-divider>
+
+      <button id="signOut" mat-menu-item [routerLink]="['../login']">
+        <mat-icon>exit_to_app</mat-icon>
+        {{ "COMMON.LOGOUT" | translate }}
+      </button>
+    </mat-menu>
+
+    <!-- <li class="tab"></li> -->
+    <!-- <app-expandable-search (search)="search($event)"></app-expandable-search> -->
+
+    <!-- <app-search-bar></app-search-bar> -->
+    <button
+      class="settings_button sidebar-toggle"
+      mat-icon-button
+      class="mat-elevation-z0"
+      (click)="toggleSidebar('right')"
+    >
+      <mat-icon>settings</mat-icon>
+    </button>
+    <!-- <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="iconText">Search:</span>
+            </ng-template>
+        </mat-tab> -->
+  </mat-toolbar-row>
+</mat-toolbar>
