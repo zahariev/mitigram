@@ -42,6 +42,8 @@ export class DefaultComponent {
   }
 
   sideBarToggler(side: string): void {
+    console.log(side);
+
     this.sidebarToggle$.next(side);
   }
 
