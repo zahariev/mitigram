@@ -2,16 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { InviteRoutingModule } from './invite-routing.module';
-import { InviteComponent } from './invite.component';
-
+import { FullNamePipe } from 'src/app/shared/pipes/name.pipe';
 
 @NgModule({
-  declarations: [
-    InviteComponent
-  ],
-  imports: [
-    CommonModule,
-    InviteRoutingModule
-  ]
+  declarations: [],
+  imports: [CommonModule, InviteRoutingModule, FullNamePipe],
 })
-export class InviteModule { }
+export class InviteModule {}

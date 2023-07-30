@@ -1,1 +1,16 @@
-<p>invite works!</p>
+<mat-tab-group animationDuration="0ms">
+  <mat-tab label="First">
+    <div *ngFor="let contact of dataService.contacts | async">
+      <p>{{ contact.name | fullName }}</p>
+      <p>{{ contact.email }}</p>
+      <button (click)="invite(contact)">Invite</button>
+    </div>
+  </mat-tab>
+  <mat-tab label="Second">
+    <div *ngFor="let group of dataService.groups | async">
+      <p>{{ group.name + ":  " + group.contacts.length + "records" }}</p>
+      <!-- <p>{{ group.email }}</p> -->
+      <button (click)="inviteGroup(group)">Invite</button>
+    </div>
+  </mat-tab>
+</mat-tab-group>

@@ -1,11 +1,27 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FullNamePipe } from 'src/app/shared/pipes/name.pipe';
 import { DataService } from 'src/app/shared/services/data.service';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-invite',
   templateUrl: './invite.component.html',
   styleUrls: ['./invite.component.scss'],
+  imports: [CommonModule, FullNamePipe, MatTabsModule, MatButtonModule],
+  standalone: true,
 })
 export class InviteComponent {
-  constructor(dataService: DataService) {}
+  constructor(public dataService: DataService) {}
+
+  invite(contact: any) {
+    console.log(contact);
+    this.dataService.invite(contact);
+  }
+
+  inviteGroup(group: any) {
+    console.log(group);
+    this.dataService.inviteGroup(group);
+  }
 }
