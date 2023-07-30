@@ -32,6 +32,11 @@ export class DataService {
 
   invite(contact: Contact) {
     this.invitedContacts.mutate((values) => values.add(contact));
+    console.log(this.invitedContacts().size);
+  }
+
+  removeInvitation(contact: Contact) {
+    this.invitedContacts.mutate((values) => values.delete(contact));
   }
 
   private getUniqueGroups(data: any[]): Group[] {

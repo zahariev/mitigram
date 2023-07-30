@@ -23,4 +23,8 @@ export class InviteListComponent {
   sendInvitations() {
     console.log(this.data.invitedContacts());
   }
+
+  removeInvitation(contact: any) {
+    this.data.removeInvitation(contact);
+  }
 }

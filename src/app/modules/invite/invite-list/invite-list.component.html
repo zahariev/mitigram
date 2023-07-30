@@ -1,5 +1,23 @@
-<div *ngFor="let invited of data.invitedContacts()">
-  <p>{{ invited.name | fullName }}</p>
-  <p>{{ invited.email }}</p>
+<div id="container">
+  <ul>
+    <li *ngFor="let invited of data.invitedContacts()">
+      {{ invited.name | fullName }}
+
+      <div class="email">
+        {{ invited.email }}
+      </div>
+      <button
+        mat-flat-button
+        color="accent"
+        class="removeButton"
+        (click)="removeInvitation(invited)"
+      >
+        Remove
+      </button>
+    </li>
+  </ul>
+
+  <button mat-raised-button class="sendButton" (click)="sendInvitations()">
+    Send
+  </button>
 </div>
-<button (click)="sendInvitations()">Remove</button>
