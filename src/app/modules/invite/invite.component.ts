@@ -16,12 +16,10 @@ export class InviteComponent {
   constructor(public dataService: DataService) {}
 
   invite(contact: any) {
-    console.log(contact);
     this.dataService.invite(contact);
   }
 
   inviteGroup(group: any) {
-    console.log(group);
     this.dataService.inviteGroup(group);
   }
 }

@@ -58,8 +58,6 @@ export class HeaderComponent {
   }
 
   toggleLanguage(event: MatSlideToggleChange): void {
-    // console.log(event);
-
     if (event.checked) this.translate.use('en');
     else this.translate.use(this.defaultLanguage);
   }

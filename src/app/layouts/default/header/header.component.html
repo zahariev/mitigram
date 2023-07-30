@@ -8,7 +8,12 @@
       >
         <mat-icon>menu</mat-icon>
       </button>
-      <!-- <img alt="Logo" src="./assets/Logo.jpg" width="70%" [routerLink]="['/itemboard']" /> -->
+      <img
+        alt="Logo"
+        src="./assets/logo.png"
+        width="10%"
+        [routerLink]="['/invite']"
+      />
     </div>
 
     <div class="spacer"></div>
@@ -18,6 +23,7 @@
       mat-button
       [matMenuTriggerFor]="menu"
       (click)="menuClick()"
+      disabled
     >
       <span id="username"> {{ user.firstName }}</span>
       <mat-icon>person_outline</mat-icon>

@@ -73,9 +73,7 @@ export class DefaultComponent {
     this.drawerState = state;
   }
 
-  activeTabChange(event: any): void {
-    console.log(event);
-  }
+  activeTabChange(event: any): void {}
 
   toggleTheme(): void {
     this.modeSwitcherService.toggleTheme();
