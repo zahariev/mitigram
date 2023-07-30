@@ -12,6 +12,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
+import { FullNamePipe } from './shared/pipes/name.pipe';
 
 export const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
   new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -21,6 +22,7 @@ export const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FullNamePipe,
     HttpClientModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot({
