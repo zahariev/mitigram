@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import data from '../data.json';
 import { Contact } from '../models/contact.model';
 import { Group } from '../models/group.model';
@@ -13,12 +13,28 @@ export class DataService {
   );
   public groups: BehaviorSubject<Group[]> = new BehaviorSubject<Group[]>([]);
 
+  private _invitedContacts: Set<Contact> = new Set();
+  public invitedContacts = signal(this._invitedContacts);
+
   constructor() {
     this.contacts.next(data as any);
     this.groups.next(this.getUniqueGroups(data));
   }
 
-  getUniqueGroups(data: any[]): Group[] {
+  inviteGroup(group: Group) {
+    const contacts: Contact[] = [];
+    group.contacts.forEach((contact) =>
+      this.invitedContacts.mutate((values) => values.add(contact))
+    );
+
+    this.invitedContacts.mutate((values) => [...values, ...contacts]);
+  }
+
+  invite(contact: Contact) {
+    this.invitedContacts.mutate((values) => values.add(contact));
+  }
+
+  private getUniqueGroups(data: any[]): Group[] {
     const groupsWithChildRecords: Group[] = [];
 
     data.forEach((contact) => {
