@@ -10,25 +10,35 @@ export class DataService {
   public contacts: any[] = data;
   public groups: Group[] = [];
 
-  name = 'Mitigram Contacts';
-
   constructor() {
     this.groups = this.getUniqueGroups(this.contacts);
     console.log(this.groups);
   }
 
-  getUniqueGroups(data: Contact[]): any[] {
-    const uniqueGroupsSet = new Set();
-    console.log(data);
+  getUniqueGroups(data: Contact[]): Group[] {
+    const groupsWithChildRecords: Group[] = [];
 
-    data.forEach((record) => {
-      if (record.groups && Array.isArray(record.groups)) {
-        record.groups.forEach((group) => {
-          uniqueGroupsSet.add(group);
+    data.forEach((contact) => {
+      // Check if the contact has groups
+      if (contact.groups && Array.isArray(contact.groups)) {
+        // Loop through each group in the contact
+        contact.groups.forEach((group) => {
+          // Check if the group already exists
+          const existingGroup = groupsWithChildRecords.findIndex(
+            (item) => item.name === group
+          );
+
+          // Group doesn't exist yet, so add it
+          if (existingGroup === -1) {
+            groupsWithChildRecords.push({ name: group, contacts: [contact] });
+          } else {
+            // Group already exists, so add the contact to it
+            groupsWithChildRecords[existingGroup].contacts.push(contact);
+          }
         });
       }
     });
 
-    return Array.from(uniqueGroupsSet);
+    return groupsWithChildRecords;
   }
 }
