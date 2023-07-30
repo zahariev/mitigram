@@ -60,8 +60,13 @@ export class DefaultComponent {
   }
 
   makeRightVisible(notEmpty: boolean): void {
-    if (notEmpty) this.drawerState.right = true;
-    this.sideBarToggler('right', true);
+    if (notEmpty) {
+      this.drawerState.right = true;
+      this.sideBarToggler('right', true);
+    } else {
+      this.drawerState.right = false;
+      this.sideBarToggler('right', false);
+    }
   }
 
   updateDrawerState(state: any): void {
