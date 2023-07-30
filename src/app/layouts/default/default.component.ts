@@ -13,7 +13,7 @@ export class DefaultComponent {
   treeData = TREE_DATA;
   // mode = 'over';
   leftSidebarSettings: SidebarSettings = {
-    mode: 'over',
+    mode: 'side',
     hasBackdrop: false,
     disableClose: true,
     minWidth: '2.9em', //'46px'
@@ -45,6 +45,10 @@ export class DefaultComponent {
     console.log(side);
 
     this.sidebarToggle$.next(side);
+  }
+
+  makeVisible(position: string): void {
+    this.drawerState.right = true;
   }
 
   updateDrawerState(state: any): void {
