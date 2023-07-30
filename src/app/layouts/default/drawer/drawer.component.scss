@@ -4,6 +4,12 @@
 }
 
 :host ::ng-deep {
+  .mat-drawer {
+    -webkit-transition: width 0.5s ease-in-out, visibility 0.5s linear;
+    -moz-transition: width 0.5s ease-in-out, visibility 0.5s linear;
+    -o-transition: width 0.5s ease-in-out, visibility 0.5s linear;
+    transition: width 0.5s ease-in-out, visibility 0.5s linear;
+  }
   .mat-drawer-inner-container {
     overflow: hidden !important;
 
@@ -43,8 +49,3 @@ mat-drawer-container {
     right: -17px;
   }
 }
-
-// #leftDrawer,
-// #rightDrawer {
-//     overflow: hidden;
-// }
