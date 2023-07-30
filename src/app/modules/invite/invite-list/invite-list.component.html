@@ -17,7 +17,12 @@
     </li>
   </ul>
 
-  <button mat-raised-button class="sendButton" (click)="sendInvitations()">
+  <button
+    *ngIf="data.invitedContacts().size > 0"
+    mat-raised-button
+    class="sendButton"
+    (click)="sendInvitations()"
+  >
     Send
   </button>
 </div>

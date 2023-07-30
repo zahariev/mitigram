@@ -12,13 +12,7 @@ import { DataService } from 'src/app/shared/services/data.service';
   standalone: true,
 })
 export class InviteListComponent {
-  @Output() notEmpty: boolean = false;
-
-  constructor(public data: DataService) {
-    effect(() => {
-      this.notEmpty = this.data.invitedContacts().size > 0;
-    });
-  }
+  constructor(public data: DataService) {}
 
   sendInvitations() {
     console.log(this.data.invitedContacts());

@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { DrawerState, SidebarSettings, TREE_DATA } from './models/main';
 import { ModeSwitcherService } from 'src/app/shared/services/mode-switcher.service';
+import { DataService } from 'src/app/shared/services/data.service';
+import { SideBarState } from 'src/app/shared/models/sidebarState.model';
 
 @Component({
   selector: 'app-default',
@@ -29,26 +31,37 @@ export class DefaultComponent {
     opened: false,
   };
 
-  sidebarToggle$: BehaviorSubject<string> = new BehaviorSubject('left');
+  sidebarToggle$: BehaviorSubject<SideBarState> = new BehaviorSubject({
+    side: 'left',
+    position: null,
+  } as SideBarState);
 
   state = 'default';
   user!: { id: number; firstName: string };
-  constructor(public modeSwitcherService: ModeSwitcherService) {
+  constructor(
+    public modeSwitcherService: ModeSwitcherService,
+    public data: DataService
+  ) {
     // public userService: UserService, private router: Router
     // this.userService.user$.subscribe((user) => {
     this.user = { id: 1, firstName: 'User' };
     // });
     this.sideBarToggler('left');
+    // this.drawerState.right = true;
+    effect(() => {
+      this.data.invitedContacts().size > 0
+        ? this.makeRightVisible(true)
+        : this.makeRightVisible(false);
+    });
   }
 
-  sideBarToggler(side: string): void {
-    console.log(side);
-
-    this.sidebarToggle$.next(side);
+  sideBarToggler(side: string, position: boolean | null = null): void {
+    this.sidebarToggle$.next({ side, position });
   }
 
-  makeVisible(position: string): void {
-    this.drawerState.right = true;
+  makeRightVisible(notEmpty: boolean): void {
+    if (notEmpty) this.drawerState.right = true;
+    this.sideBarToggler('right', true);
   }
 
   updateDrawerState(state: any): void {
