@@ -25,7 +25,7 @@ export class DefaultComponent {
     hasBackdrop: false,
     disableClose: true,
     minWidth: '0px',
-    maxWidth: '15em',
+    maxWidth: '20em',
     opened: false,
   };
 
