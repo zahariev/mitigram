@@ -16,7 +16,7 @@ export class DefaultComponent {
     mode: 'over',
     hasBackdrop: false,
     disableClose: true,
-    minWidth: '0px', //'2.8em','46px'
+    minWidth: '2.9em', //'46px'
     maxWidth: '12em',
     opened: false,
   };
