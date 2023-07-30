@@ -2,27 +2,30 @@ import { Injectable } from '@angular/core';
 import data from '../data.json';
 import { Contact } from '../models/contact.model';
 import { Group } from '../models/group.model';
+import { BehaviorSubject, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  public contacts: any[] = data;
-  public groups: Group[] = [];
+  public contacts: BehaviorSubject<Contact[]> = new BehaviorSubject<Contact[]>(
+    []
+  );
+  public groups: BehaviorSubject<Group[]> = new BehaviorSubject<Group[]>([]);
 
   constructor() {
-    this.groups = this.getUniqueGroups(this.contacts);
-    console.log(this.groups);
+    this.contacts.next(data as any);
+    this.groups.next(this.getUniqueGroups(data));
   }
 
-  getUniqueGroups(data: Contact[]): Group[] {
+  getUniqueGroups(data: any[]): Group[] {
     const groupsWithChildRecords: Group[] = [];
 
     data.forEach((contact) => {
       // Check if the contact has groups
       if (contact.groups && Array.isArray(contact.groups)) {
         // Loop through each group in the contact
-        contact.groups.forEach((group) => {
+        contact.groups.forEach((group: string) => {
           // Check if the group already exists
           const existingGroup = groupsWithChildRecords.findIndex(
             (item) => item.name === group
