@@ -1,0 +1,5 @@
+<div *ngFor="let invited of data.invitedContacts()">
+  <p>{{ invited.name | fullName }}</p>
+  <p>{{ invited.email }}</p>
+</div>
+<button (click)="sendInvitations()">Remove</button>
