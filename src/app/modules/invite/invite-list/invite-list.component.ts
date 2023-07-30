@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Output, effect } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { FullNamePipe } from 'src/app/shared/pipes/name.pipe';
 import { DataService } from 'src/app/shared/services/data.service';
@@ -12,7 +12,13 @@ import { DataService } from 'src/app/shared/services/data.service';
   standalone: true,
 })
 export class InviteListComponent {
-  constructor(public data: DataService) {}
+  @Output() notEmpty: boolean = false;
+
+  constructor(public data: DataService) {
+    effect(() => {
+      this.notEmpty = this.data.invitedContacts().size > 0;
+    });
+  }
 
   sendInvitations() {
     console.log(this.data.invitedContacts());
