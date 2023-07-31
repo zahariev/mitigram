@@ -7,12 +7,12 @@
         {{ invited.email }}
       </div>
       <button
-        mat-flat-button
+        mat-icon-button
         color="accent"
         class="removeButton"
         (click)="removeInvitation(invited)"
       >
-        Remove
+        <mat-icon>close</mat-icon>
       </button>
     </li>
   </ul>

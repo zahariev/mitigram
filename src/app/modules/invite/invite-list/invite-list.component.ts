@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Output, effect } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { FullNamePipe } from 'src/app/shared/pipes/name.pipe';
 import { DataService } from 'src/app/shared/services/data.service';
 
@@ -8,7 +9,7 @@ import { DataService } from 'src/app/shared/services/data.service';
   selector: 'app-invite-list',
   templateUrl: './invite-list.component.html',
   styleUrls: ['./invite-list.component.scss'],
-  imports: [CommonModule, MatButtonModule, FullNamePipe],
+  imports: [CommonModule, MatButtonModule, FullNamePipe, MatIconModule],
   standalone: true,
 })
 export class InviteListComponent {
