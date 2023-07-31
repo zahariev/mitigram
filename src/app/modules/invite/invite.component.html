@@ -1,16 +1,21 @@
 <mat-tab-group animationDuration="0ms">
-  <mat-tab label="First">
-    <div *ngFor="let contact of dataService.contacts | async">
-      <p>
+  <mat-tab label="Contacts">
+    <ng-container *ngFor="let contact of dataService.contacts | async">
+      <div class="contactRow">
         {{ contact.name | fullName }} {{ contact.email }}
 
-        <button mat-flat-button color="accent" (click)="invite(contact)">
+        <button
+          mat-flat-button
+          color="accent"
+          class="inviteButton"
+          (click)="invite(contact)"
+        >
           Invite
         </button>
-      </p>
-    </div>
+      </div>
+    </ng-container>
   </mat-tab>
-  <mat-tab label="Second">
+  <mat-tab label="Groups">
     <div *ngFor="let group of dataService.groups | async">
       <p>
         {{ group.name + ":  " + group.contacts.length + "records" }}

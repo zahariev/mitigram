@@ -6,6 +6,7 @@
 :host ::ng-deep {
   .mat-mdc-tab-group {
     height: 100%;
+    width: 50%;
   }
   .mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs
     > .mat-mdc-tab-header
@@ -14,6 +15,21 @@
   }
 
   .mat-mdc-tab-body-content {
+    box-sizing: border-box;
+    padding-top: 20px;
     padding-left: 20px;
+    // overflow: hidden;
   }
+}
+
+.inviteButton {
+  // position: absolute;
+  bottom: 10;
+  right: 10%;
+  height: 2.5em;
+  // display: block;
+}
+.contactRow {
+  display: flex;
+  height: 3.2em;
 }

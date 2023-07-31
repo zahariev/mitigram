@@ -1,13 +1,13 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
+    <button
+      mat-icon-button
+      class="mat-elevation-z0 sidebar-toggle"
+      (click)="toggleSidebar('left')"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
     <div class="logo">
-      <button
-        mat-icon-button
-        class="mat-elevation-z0 sidebar-toggle"
-        (click)="toggleSidebar('left')"
-      >
-        <mat-icon>menu</mat-icon>
-      </button>
       <img
         alt="Logo"
         src="./assets/logo.png"
