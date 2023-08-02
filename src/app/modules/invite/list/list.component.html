@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let invited of data">
+    {{ invited?.name | fullName }}
+
+    <div class="email">
+      {{ invited.email }}
+    </div>
+    <ng-content></ng-content>
+  </li>
+</ul>
