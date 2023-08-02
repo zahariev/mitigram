@@ -15,9 +15,18 @@
   <button
     *ngIf="data.invitedContacts().size > 0"
     mat-raised-button
+    color="accent"
     class="sendButton"
     (click)="sendInvitations()"
   >
     Send
+  </button>
+  <button
+    *ngIf="data.invitedContacts().size > 0"
+    mat-raised-button
+    class="clearButton"
+    (click)="clearAllInvitations()"
+  >
+    Clear All
   </button>
 </div>

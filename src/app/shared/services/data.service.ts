@@ -38,6 +38,10 @@ export class DataService {
     this.invitedContacts.mutate((values) => values.delete(contact));
   }
 
+  clearAllInvitations() {
+    this.invitedContacts.mutate((values) => values.clear());
+  }
+
   private getUniqueGroups(data: any[]): Group[] {
     const groupsWithChildRecords: Group[] = [];
 

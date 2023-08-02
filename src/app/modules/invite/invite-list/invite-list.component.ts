@@ -29,4 +29,7 @@ export class InviteListComponent {
   removeInvitation(contact: any) {
     this.data.removeInvitation(contact);
   }
+  clearAllInvitations() {
+    this.data.clearAllInvitations();
+  }
 }
