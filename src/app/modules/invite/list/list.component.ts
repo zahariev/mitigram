@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, ContentChild, Input } from '@angular/core';
 import { FullNamePipe } from 'src/app/shared/pipes/name.pipe';
 
 @Component({
@@ -10,5 +10,7 @@ import { FullNamePipe } from 'src/app/shared/pipes/name.pipe';
   imports: [CommonModule, FullNamePipe],
 })
 export class ListComponent {
-  @Input() data: any[] = [];
+  @ContentChild('content') content!: any;
+  @ContentChild('item') item!: any;
+  @Input() data!: any;
 }

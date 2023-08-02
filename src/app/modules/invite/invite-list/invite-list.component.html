@@ -1,21 +1,16 @@
 <div id="container">
-  <ul>
-    <li *ngFor="let invited of data.invitedContacts()">
-      {{ invited.name | fullName }}
-
-      <div class="email">
-        {{ invited.email }}
-      </div>
+  <app-list [data]="data.invitedContacts()">
+    <ng-template #content let-rowData>
       <button
         mat-icon-button
         color="accent"
         class="removeButton"
-        (click)="removeInvitation(invited)"
+        (click)="removeInvitation(rowData)"
       >
         <mat-icon>close</mat-icon>
       </button>
-    </li>
-  </ul>
+    </ng-template>
+  </app-list>
 
   <button
     *ngIf="data.invitedContacts().size > 0"

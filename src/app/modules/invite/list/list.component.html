@@ -1,10 +1,20 @@
 <ul>
-  <li *ngFor="let invited of data">
-    {{ invited?.name | fullName }}
+  <li *ngFor="let rowData of data">
+    <div class="name">
+      {{ rowData?.name | fullName }}
+    </div>
 
     <div class="email">
-      {{ invited.email }}
+      {{ rowData.email }}
     </div>
-    <ng-content></ng-content>
+    <ng-template
+      [ngTemplateOutlet]="item"
+      [ngTemplateOutletContext]="{ $implicit: rowData }"
+    >
+    </ng-template>
+    <ng-template
+      [ngTemplateOutlet]="content"
+      [ngTemplateOutletContext]="{ $implicit: rowData }"
+    ></ng-template>
   </li>
 </ul>

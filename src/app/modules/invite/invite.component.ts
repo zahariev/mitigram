@@ -4,12 +4,19 @@ import { FullNamePipe } from 'src/app/shared/pipes/name.pipe';
 import { DataService } from 'src/app/shared/services/data.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
+import { ListComponent } from './list/list.component';
 
 @Component({
   selector: 'app-invite',
   templateUrl: './invite.component.html',
   styleUrls: ['./invite.component.scss'],
-  imports: [CommonModule, FullNamePipe, MatTabsModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    FullNamePipe,
+    MatTabsModule,
+    MatButtonModule,
+    ListComponent,
+  ],
   standalone: true,
 })
 export class InviteComponent {
