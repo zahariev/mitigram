@@ -4,6 +4,7 @@ import { DrawerState, SidebarSettings, TREE_DATA } from './models/main';
 import { ModeSwitcherService } from 'src/app/shared/services/mode-switcher.service';
 import { DataService } from 'src/app/shared/services/data.service';
 import { SideBarState } from 'src/app/shared/models/sidebarState.model';
+import packageJson from '../../../../package.json';
 
 @Component({
   selector: 'app-default',
@@ -11,6 +12,7 @@ import { SideBarState } from 'src/app/shared/models/sidebarState.model';
   styleUrls: ['./default.component.scss'],
 })
 export class DefaultComponent {
+  version: string = packageJson.version;
   drawerState: DrawerState = { left: true, right: true };
   treeData = TREE_DATA;
   // mode = 'over';
