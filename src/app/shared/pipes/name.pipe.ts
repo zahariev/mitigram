@@ -7,7 +7,7 @@ import { Name } from '../models/addressBookEntry.model';
   standalone: true,
 })
 export class FullNamePipe implements PipeTransform {
-  transform(name: Name): string {
+  transform(name: Name | string): string {
     if (typeof name === 'string') return name;
     else return name.first + ' ' + name.last;
   }
