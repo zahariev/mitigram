@@ -36,12 +36,13 @@ export class AddressBookService {
 
           const groups = this.getUniqueGroups(entities);
           this.groups$.next(groups);
-          this.addressBook$.next(entities);
+
           this._rawAddressBook = entities;
           this;
         })
       )
       .subscribe();
+    this.listenForSearch();
   }
 
   onSearch(event: any): void {
