@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 
 @Component({
   selector: 'app-invite-list',
@@ -25,6 +26,7 @@ import { TranslateModule } from '@ngx-translate/core';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
+    ButtonComponent,
   ],
   standalone: true,
 })

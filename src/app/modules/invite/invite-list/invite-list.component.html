@@ -16,23 +16,25 @@
       </ng-template>
     </app-list>
     <hr />
+    <div class="buttons">
+      <button
+        [disabled]="invitationService.invitedContacts().size === 0"
+        mat-raised-button
+        class="clearButton"
+        (click)="clearAllInvitations()"
+      >
+        {{ "BUTTONS.CLEAR" | translate }}
+      </button>
 
-    <button
-      [disabled]="invitationService.invitedContacts().size === 0"
-      mat-raised-button
-      color="accent"
-      class="sendButton"
-      (click)="sendInvitations()"
-    >
-      {{ "BUTTONS.SEND" | translate }}
-    </button>
-    <button
-      [disabled]="invitationService.invitedContacts().size === 0"
-      mat-raised-button
-      class="clearButton"
-      (click)="clearAllInvitations()"
-    >
-      {{ "BUTTONS.CLEAR" | translate }}
-    </button>
+      <button
+        [disabled]="invitationService.invitedContacts().size === 0"
+        mat-raised-button
+        color="accent"
+        class="sendButton"
+        (click)="sendInvitations()"
+      >
+        {{ "BUTTONS.SEND" | translate }}
+      </button>
+    </div>
   </div>
 </div>

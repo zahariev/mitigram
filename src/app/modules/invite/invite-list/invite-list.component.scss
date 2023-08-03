@@ -14,20 +14,19 @@
   right: 5px;
 }
 
-.sendButton {
-  position: absolute;
-  bottom: 10;
-  right: 15%;
-  display: block;
-}
-
-.clearButton {
-  position: absolute;
-  bottom: 10;
-  left: 4%;
-  display: block;
-}
-
 hr {
-  margin: 10px;
+  margin: 20px;
+}
+
+.buttons {
+  position: relative;
+
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  .clearButton {
+  }
+
+  .sendButton {
+  }
 }
