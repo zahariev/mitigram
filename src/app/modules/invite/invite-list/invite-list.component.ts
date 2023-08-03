@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 import { EmailComponent } from '../email/email.component';
+import { SeparatorComponent } from 'src/app/shared/components/separator/separator.component';
 
 @Component({
   selector: 'app-invite-list',
@@ -29,6 +30,7 @@ import { EmailComponent } from '../email/email.component';
     FormsModule,
     ButtonComponent,
     EmailComponent,
+    SeparatorComponent,
   ],
   standalone: true,
 })
