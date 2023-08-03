@@ -7,6 +7,9 @@
       "REQUIRED": "This field is required"
     }
   },
+  "INVITE_LIST": {
+    "TITLE": "Invite List"
+  },
   "BUTTONS": {
     "CANCEL": "Cancel",
     "CLEAR": "Clear All",

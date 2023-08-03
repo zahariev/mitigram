@@ -32,8 +32,6 @@ export class AddressBookService {
       .getData()
       .pipe(
         tap((entities: AddressBookEntry[]) => {
-          console.log('entities', entities);
-
           const groups = this.getUniqueGroups(entities);
           this.groups$.next(groups);
 

@@ -1,33 +1,38 @@
 <div id="container">
-  <app-list [data]="invitationService.invitedContacts()">
-    <ng-template #content let-rowData>
-      <button
-        mat-icon-button
-        color="accent"
-        class="removeButton"
-        (click)="removeInvitation(rowData)"
-      >
-        <mat-icon>close</mat-icon>
-      </button>
-    </ng-template>
-  </app-list>
-  <hr />
+  <div *ngIf="invitationService.invitedContacts().size > -1" class="title">
+    <mat-icon>person_add</mat-icon>
+    <div class="titleText">{{ "INVITE_LIST.TITLE" | translate }}</div>
 
-  <button
-    *ngIf="invitationService.invitedContacts().size > 0"
-    mat-raised-button
-    color="accent"
-    class="sendButton"
-    (click)="sendInvitations()"
-  >
-    {{ "BUTTONS.SEND" | translate }}
-  </button>
-  <button
-    *ngIf="invitationService.invitedContacts().size > 0"
-    mat-raised-button
-    class="clearButton"
-    (click)="clearAllInvitations()"
-  >
-    {{ "BUTTONS.CLEAR" | translate }}
-  </button>
+    <app-list [data]="invitationService.invitedContacts()">
+      <ng-template #content let-rowData>
+        <button
+          mat-icon-button
+          color="accent"
+          class="removeButton"
+          (click)="removeInvitation(rowData)"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </ng-template>
+    </app-list>
+    <hr />
+
+    <button
+      [disabled]="invitationService.invitedContacts().size === 0"
+      mat-raised-button
+      color="accent"
+      class="sendButton"
+      (click)="sendInvitations()"
+    >
+      {{ "BUTTONS.SEND" | translate }}
+    </button>
+    <button
+      [disabled]="invitationService.invitedContacts().size === 0"
+      mat-raised-button
+      class="clearButton"
+      (click)="clearAllInvitations()"
+    >
+      {{ "BUTTONS.CLEAR" | translate }}
+    </button>
+  </div>
 </div>

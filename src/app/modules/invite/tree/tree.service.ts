@@ -38,8 +38,6 @@ export class TreeService {
   }
 
   initialize(rawData: any) {
-    console.log(rawData);
-
     // Build the tree nodes from Json object. The result is a list of `TodoItemNode` with nested
     //     file node as children.
     const data = this.buildFileTree(rawData, 0);
@@ -57,7 +55,6 @@ export class TreeService {
       const value = obj[key];
       const node = new TodoItemNode();
       node.item = key;
-      console.log(value);
 
       if (value != null) {
         if (typeof value === 'object') {

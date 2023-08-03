@@ -31,7 +31,7 @@ export class DefaultComponent {
     disableClose: true,
     minWidth: '0px',
     maxWidth: '20em',
-    opened: false,
+    opened: true,
   };
 
   sidebarToggle$: BehaviorSubject<SideBarState> = new BehaviorSubject({
