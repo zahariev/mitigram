@@ -8,6 +8,7 @@ import { Name } from '../models/contact.model';
 })
 export class FullNamePipe implements PipeTransform {
   transform(name: Name): string {
-    return name.first + ' ' + name.last;
+    if (typeof name === 'string') return name;
+    else return name.first + ' ' + name.last;
   }
 }
