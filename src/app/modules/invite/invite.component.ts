@@ -8,6 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { ListComponent } from './list/list.component';
 import { SearchComponent } from 'src/app/shared/components/search/search.component';
 import { AddressBookService } from 'src/app/shared/services/address-book.service';
+import { TreeComponent } from './tree/tree.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-invite',
@@ -15,11 +17,13 @@ import { AddressBookService } from 'src/app/shared/services/address-book.service
   styleUrls: ['./invite.component.scss'],
   imports: [
     CommonModule,
+    TranslateModule,
     FullNamePipe,
     MatTabsModule,
     MatButtonModule,
     ListComponent,
     SearchComponent,
+    TreeComponent,
   ],
   standalone: true,
 })

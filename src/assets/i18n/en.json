@@ -9,5 +9,9 @@
   },
   "USER_DETAILS": {
     "MENU_LINK": "User Details"
+  },
+  "TAB": {
+    "CONTACTS": "Contacts",
+    "GROUPS": "Groups"
   }
 }

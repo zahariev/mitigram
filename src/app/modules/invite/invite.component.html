@@ -1,5 +1,5 @@
 <mat-tab-group animationDuration="0ms" color="accent">
-  <mat-tab label="Contacts">
+  <mat-tab label="{{ 'TAB.CONTACTS' | translate }}">
     <div id="search">
       <app-search (search)="filterContacts($event)"></app-search>
     </div>
@@ -18,31 +18,37 @@
     </app-list>
   </mat-tab>
   <mat-tab label="Groups">
-    <app-list [data]="addressBookService.groups$ | async">
-      <ng-template #item let-rowData>
-        <p>
-          {{ rowData.contacts.length + "records" }}
-          <button
-            mat-flat-button
-            color="accent"
-            class="inviteButton"
-            (click)="inviteGroup(rowData)"
-          >
-            Invite
-          </button>
-        </p>
-      </ng-template>
+    <div class="groupList">
+      <app-tree></app-tree>
+      <!-- <ul>
+        <li *ngFor="let rowData of addressBookService.groups$ | async">
+          <p class="groupName">
+            {{ rowData?.name }}
+            {{ rowData.contacts.length + "records" }}
 
-      <ng-template #content let-rowData>
-        <button
-          mat-flat-button
-          color="accent"
-          class="inviteButton"
-          (click)="inviteGroup(rowData)"
-        >
-          Invite
-        </button>
-      </ng-template>
-    </app-list>
+            <button
+              mat-flat-button
+              color="accent"
+              class="openButton"
+              (click)="inviteGroup(rowData)"
+            >
+              Open
+            </button>
+          </p>
+          <app-list [data]="rowData.contacts">
+            <ng-template #content let-rowData>
+              <button
+                mat-flat-button
+                color="accent"
+                class="inviteButton"
+                (click)="invite(rowData)"
+              >
+                Invite
+              </button>
+            </ng-template>
+          </app-list>
+        </li>
+      </ul> -->
+    </div>
   </mat-tab>
 </mat-tab-group>

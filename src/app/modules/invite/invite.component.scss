@@ -26,6 +26,16 @@
   }
 }
 
+ul {
+  margin: 0;
+  padding-top: 20px;
+}
+
+li {
+  position: relative;
+  height: 50px;
+}
+
 .inviteButton {
   position: absolute;
   bottom: 20px;
@@ -33,6 +43,19 @@
   height: 2.5em;
   // display: block;
 }
+
+.openButton {
+  position: absolute;
+  bottom: 20px;
+  right: 10%;
+  height: 2.5em;
+  // display: block;
+}
+
+.groupList {
+  position: relative;
+}
+
 .contactRow {
   display: flex;
   height: 3.2em;

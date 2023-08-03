@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { InviteRoutingModule } from './invite-routing.module';
 import { FullNamePipe } from 'src/app/shared/pipes/name.pipe';
+import { TreeComponent } from './tree/tree.component';
 
 @NgModule({
   declarations: [],
