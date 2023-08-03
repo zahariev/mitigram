@@ -58,11 +58,12 @@ export class DrawerComponent implements OnInit, OnDestroy {
     this.sideBarOpen.right = this.rightSettings.opened || false;
   }
 
-  toggleSideBar(side: string, position: boolean | null = null): void {
+  toggleSideBar(side: string, isOpen: boolean | null = null): void {
     const sideKey = side as keyof DrawerState;
-    if (position === null)
+    if (isOpen === null)
+      // Toggle state
       this.sideBarOpen[sideKey] = !this.sideBarOpen[sideKey];
-    else this.sideBarOpen[sideKey] = position;
+    else this.sideBarOpen[sideKey] = isOpen;
 
     this.drawerState.emit(this.sideBarOpen);
     setTimeout(() => {

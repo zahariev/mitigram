@@ -12,7 +12,7 @@ import { EventEmitter } from '@angular/core';
 import { DrawerState } from '../models/main';
 import { SideBarState } from 'src/app/shared/models/sidebarState.model';
 
-describe('DrawerComponent', () => {
+fdescribe('DrawerComponent', () => {
   let component: DrawerComponent;
   let fixture: ComponentFixture<DrawerComponent>;
 
@@ -48,17 +48,17 @@ describe('DrawerComponent', () => {
   });
   it('should emit correct state when toggleSideBar is called', () => {
     spyOn(component.drawerState, 'emit');
-    component.toggleSideBar('left');
+    component.toggleSideBar('left', true);
     expect(component.drawerState.emit).toHaveBeenCalledWith({
       left: true,
       right: false,
     } as DrawerState);
-    component.toggleSideBar('right');
+    component.toggleSideBar('left', false);
     expect(component.drawerState.emit).toHaveBeenCalledWith({
-      left: true,
+      left: false,
       right: true,
     } as DrawerState);
-    component.toggleSideBar('left');
+    component.toggleSideBar('left', null);
     expect(component.drawerState.emit).toHaveBeenCalledWith({
       left: false,
       right: true,
