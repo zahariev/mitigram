@@ -1,6 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import data from '../data.json';
-import { Contact } from '../models/contact.model';
+import { AddressBookEntry } from '../models/addressBookEntry.model';
 import { Group } from '../models/group.model';
 import {
   BehaviorSubject,
@@ -22,9 +21,9 @@ export class DataService {
 
   constructor(private readonly httpClient: HttpClient) {}
 
-  getData(): Observable<Contact[]> {
+  getData(): Observable<AddressBookEntry[]> {
     return this.httpClient
-      .get<Contact[]>(this.JSON_DATA_URL)
+      .get<AddressBookEntry[]>(this.JSON_DATA_URL)
       .pipe(shareReplay(1));
   }
 }
