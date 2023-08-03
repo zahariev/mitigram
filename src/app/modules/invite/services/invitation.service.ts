@@ -20,6 +20,10 @@ export class InvitationService {
     this.invitedContacts.mutate((values) => [...values, ...contacts]);
   }
 
+  isInvited(contact: AddressBookEntry): boolean {
+    return this._invitedContacts.has(contact);
+  }
+
   invite(contact: AddressBookEntry) {
     this.invitedContacts.mutate((values) => values.add(contact));
   }
