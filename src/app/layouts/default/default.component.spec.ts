@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';
 import { ModeSwitcherService } from 'src/app/shared/services/mode-switcher.service';
 import { SideBarState } from 'src/app/shared/models/sidebarState.model';
+import { InviteListComponent } from 'src/app/modules/invite/invite-list/invite-list.component';
 
 describe('DefaultComponent', () => {
   let component: DefaultComponent;
@@ -24,6 +25,7 @@ describe('DefaultComponent', () => {
         MatIconModule,
         HeaderComponent,
         BrowserAnimationsModule,
+        InviteListComponent,
         DrawerComponent,
         TreeMenuComponent,
         TranslateModule.forRoot(),
@@ -51,10 +53,10 @@ describe('DefaultComponent', () => {
     } as DrawerState);
     expect(component.treeData).toEqual(TREE_DATA);
     expect(component.leftSidebarSettings).toEqual({
-      mode: 'over',
+      mode: 'side',
       hasBackdrop: false,
       disableClose: true,
-      minWidth: '0px',
+      minWidth: '2.9em',
       maxWidth: '12em',
       opened: false,
     });
@@ -63,7 +65,7 @@ describe('DefaultComponent', () => {
       hasBackdrop: false,
       disableClose: true,
       minWidth: '0px',
-      maxWidth: '15em',
+      maxWidth: '20em',
       opened: false,
     });
     expect(component.sidebarToggle$ instanceof BehaviorSubject).toBeTruthy();
@@ -74,9 +76,10 @@ describe('DefaultComponent', () => {
   it('should call sideBarToggler method and update sidebarToggle$ subject', () => {
     spyOn(component.sidebarToggle$, 'next');
     component.sideBarToggler('left');
-    expect(component.sidebarToggle$.next).toHaveBeenCalledWith(
-      'left' as unknown as SideBarState
-    );
+    expect(component.sidebarToggle$.next).toHaveBeenCalledWith({
+      side: 'left',
+      position: null,
+    });
   });
 
   it('should update drawerState', () => {
