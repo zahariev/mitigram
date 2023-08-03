@@ -5,6 +5,7 @@ import { DataService } from 'src/app/shared/services/data.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 import { ListComponent } from './list/list.component';
+import { SearchComponent } from 'src/app/shared/components/search/search.component';
 
 @Component({
   selector: 'app-invite',
@@ -16,6 +17,7 @@ import { ListComponent } from './list/list.component';
     MatTabsModule,
     MatButtonModule,
     ListComponent,
+    SearchComponent,
   ],
   standalone: true,
 })
@@ -28,5 +30,9 @@ export class InviteComponent {
 
   inviteGroup(group: any) {
     this.dataService.inviteGroup(group);
+  }
+
+  filterContacts(value: string) {
+    this.dataService.onSearch(value);
   }
 }

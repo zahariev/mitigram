@@ -1,6 +1,10 @@
 <mat-tab-group animationDuration="0ms" color="accent">
   <mat-tab label="Contacts">
-    <app-list [data]="dataService.contacts | async">
+    <div id="search">
+      <app-search (search)="filterContacts($event)"></app-search>
+    </div>
+
+    <app-list [data]="dataService.filteredContacts$ | async">
       <ng-template #content let-rowData>
         <button
           mat-flat-button
