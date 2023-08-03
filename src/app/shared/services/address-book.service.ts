@@ -7,7 +7,7 @@ import {
   switchMap,
   tap,
 } from 'rxjs';
-import { Contact } from 'src/app/shared/models/contact.model';
+import { AddressBookEntry } from 'src/app/shared/models/addressBookEntry.model';
 import { Group } from 'src/app/shared/models/group.model';
 import { DataService } from 'src/app/shared/services/data.service';
 
@@ -16,13 +16,14 @@ import { DataService } from 'src/app/shared/services/data.service';
 })
 export class AddressBookService {
   public groups$: BehaviorSubject<Group[]> = new BehaviorSubject<Group[]>([]);
-  public addressBook$: BehaviorSubject<Contact[]> = new BehaviorSubject<
-    Contact[]
-  >([]);
+  public addressBook$: BehaviorSubject<AddressBookEntry[]> =
+    new BehaviorSubject<AddressBookEntry[]>([]);
 
-  private _rawAddressBook: Contact[] = [];
+  private _rawAddressBook: AddressBookEntry[] = [];
 
-  public filteredContacts$: Observable<Contact[]> = new Observable<Contact[]>();
+  public filteredAddressBook$: Observable<AddressBookEntry[]> = new Observable<
+    AddressBookEntry[]
+  >();
 
   searchQuery$: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
@@ -30,7 +31,9 @@ export class AddressBookService {
     dataService
       .getData()
       .pipe(
-        tap((entities: Contact[]) => {
+        tap((entities: AddressBookEntry[]) => {
+          console.log('entities', entities);
+
           const groups = this.getUniqueGroups(entities);
           this.groups$.next(groups);
           this.addressBook$.next(entities);
@@ -74,12 +77,12 @@ export class AddressBookService {
   }
 
   private listenForSearch(): void {
-    this.filteredContacts$ = this.searchQuery$.pipe(
+    this.filteredAddressBook$ = this.searchQuery$.pipe(
       // wait 250ms after each keystroke before firing the search
       debounceTime(250),
       switchMap((searchVal: string) => {
         return of(
-          this._rawAddressBook?.filter((entry: Contact) => {
+          this._rawAddressBook?.filter((entry: AddressBookEntry) => {
             return (
               entry.company.includes(searchVal) ||
               entry.email.includes(searchVal) ||

@@ -3,7 +3,7 @@ export interface Name {
   last: string;
 }
 
-export interface Contact {
+export interface AddressBookEntry {
   _id: number;
   picture: string;
   name: Name;

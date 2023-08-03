@@ -1,6 +1,6 @@
-import { Contact } from './contact.model';
+import { AddressBookEntry } from './addressBookEntry.model';
 
 export interface Group {
   name: string;
-  contacts: Contact[];
+  contacts: AddressBookEntry[];
 }

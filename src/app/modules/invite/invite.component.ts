@@ -7,7 +7,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 import { ListComponent } from './list/list.component';
 import { SearchComponent } from 'src/app/shared/components/search/search.component';
-import { AddressBookService } from './services/address-book.service';
+import { AddressBookService } from 'src/app/shared/services/address-book.service';
 
 @Component({
   selector: 'app-invite',

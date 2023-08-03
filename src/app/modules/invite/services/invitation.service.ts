@@ -1,18 +1,18 @@
 import { Injectable, signal } from '@angular/core';
-import { Contact } from 'src/app/shared/models/contact.model';
+import { AddressBookEntry } from 'src/app/shared/models/addressBookEntry.model';
 import { Group } from 'src/app/shared/models/group.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class InvitationService {
-  private _invitedContacts: Set<Contact> = new Set();
+  private _invitedContacts: Set<AddressBookEntry> = new Set();
   public invitedContacts = signal(this._invitedContacts);
 
   constructor() {}
 
   inviteGroup(group: Group) {
-    const contacts: Contact[] = [];
+    const contacts: AddressBookEntry[] = [];
     group.contacts.forEach((contact) =>
       this.invitedContacts.mutate((values) => values.add(contact))
     );
@@ -20,11 +20,11 @@ export class InvitationService {
     this.invitedContacts.mutate((values) => [...values, ...contacts]);
   }
 
-  invite(contact: Contact) {
+  invite(contact: AddressBookEntry) {
     this.invitedContacts.mutate((values) => values.add(contact));
   }
 
-  removeInvitation(contact: Contact) {
+  removeInvitation(contact: AddressBookEntry) {
     this.invitedContacts.mutate((values) => values.delete(contact));
   }
 

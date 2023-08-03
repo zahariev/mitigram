@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Name } from '../models/contact.model';
+import { Name } from '../models/addressBookEntry.model';
 
 @Pipe({
   name: 'fullName',
