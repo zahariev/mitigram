@@ -26,13 +26,14 @@
             {{ rowData?.name }}
             {{ rowData.contacts.length + "records" }}
 
-            <app-button
-              [primary]="true"
-              text="BUTTONS.INVITE""
+            <button
+              mat-flat-button
+              color="accent"
+              class="openButton"
               (click)="inviteGroup(rowData)"
             >
-
-            </app-button>
+              {{ "BUTTONS.INVITE" | translate }}
+            </button>
           </p>
         </li>
       </ul>

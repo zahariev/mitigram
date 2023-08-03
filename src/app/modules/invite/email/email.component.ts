@@ -1,4 +1,3 @@
-import { ExternalUserInviteComponent } from './external-user-invite/external-user-invite.component';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
@@ -7,7 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './email.component.html',
   styleUrls: ['./email.component.scss'],
   standalone: true,
-  imports: [CommonModule, ExternalUserInviteComponent],
+  imports: [CommonModule],
 })
 export class EmailComponent {
   inviteUser(email: string) {
