@@ -1,12 +1,13 @@
 <ul>
-  <li *ngFor="let rowData of data">
-    <div class="name">
+  <li *ngFor="let rowData of data; trackBy: trackById">
+    <div class="name" *ngIf="rowData?.name">
       {{ rowData?.name | fullName }}
     </div>
 
     <div class="email">
       {{ rowData.email }}
     </div>
+
     <ng-template
       [ngTemplateOutlet]="item"
       [ngTemplateOutletContext]="{ $implicit: rowData }"

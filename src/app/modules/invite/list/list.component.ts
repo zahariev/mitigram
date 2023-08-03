@@ -12,5 +12,10 @@ import { FullNamePipe } from 'src/app/shared/pipes/name.pipe';
 export class ListComponent {
   @ContentChild('content') content!: any;
   @ContentChild('item') item!: any;
+  @ContentChild('item2') item2!: any;
   @Input() data!: any;
+
+  trackById(index: number, content: any): string {
+    return content._id;
+  }
 }
