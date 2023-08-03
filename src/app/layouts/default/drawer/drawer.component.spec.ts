@@ -12,7 +12,7 @@ import { EventEmitter } from '@angular/core';
 import { DrawerState } from '../models/main';
 import { SideBarState } from 'src/app/shared/models/sidebarState.model';
 
-fdescribe('DrawerComponent', () => {
+describe('DrawerComponent', () => {
   let component: DrawerComponent;
   let fixture: ComponentFixture<DrawerComponent>;
 
