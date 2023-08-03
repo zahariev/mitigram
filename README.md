@@ -26,3 +26,4 @@ TODO: later this day:
 - Confirmation Dialog before sending emails.
 - clear console.logs.
 - write tests for NamePipe.
+- Theming buttons
