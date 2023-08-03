@@ -35,20 +35,16 @@
               {{ "BUTTONS.INVITE" | translate }}
             </button>
           </p>
-          <!-- <app-list [data]="rowData.contacts">
-            <ng-template #content let-rowData>
-              <button
-                mat-flat-button
-                color="accent"
-                class="inviteButton"
-                (click)="invite(rowData)"
-              >
-                Invite
-              </button>
-            </ng-template>
-          </app-list> -->
         </li>
       </ul>
     </div>
   </mat-tab>
 </mat-tab-group>
+
+<div class="external-invite-container">
+  <div class="separator">or invite by email</div>
+
+  <!-- <app-external-user-invite
+      (onExternalUserInvite)="inviteUser($event)"
+    ></app-external-user-invite> -->
+</div>
