@@ -5,6 +5,7 @@ import { ModeSwitcherService } from 'src/app/shared/services/mode-switcher.servi
 import { DataService } from 'src/app/shared/services/data.service';
 import { SideBarState } from 'src/app/shared/models/sidebarState.model';
 import packageJson from '../../../../package.json';
+import { InvitationService } from 'src/app/modules/invite/services/invitation.service';
 
 @Component({
   selector: 'app-default',
@@ -42,7 +43,7 @@ export class DefaultComponent {
   user!: { id: number; firstName: string };
   constructor(
     public modeSwitcherService: ModeSwitcherService,
-    public data: DataService
+    public invitationService: InvitationService
   ) {
     // public userService: UserService, private router: Router
     // this.userService.user$.subscribe((user) => {
@@ -51,7 +52,7 @@ export class DefaultComponent {
     this.sideBarToggler('left');
     // this.drawerState.right = true;
     effect(() => {
-      this.data.invitedContacts().size > 0
+      this.invitationService.invitedContacts().size > 0
         ? this.makeRightVisible(true)
         : this.makeRightVisible(false);
     });
