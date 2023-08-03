@@ -1,3 +1,4 @@
+import { InvitationService } from './services/invitation.service';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FullNamePipe } from 'src/app/shared/pipes/name.pipe';
@@ -6,6 +7,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 import { ListComponent } from './list/list.component';
 import { SearchComponent } from 'src/app/shared/components/search/search.component';
+import { AddressBookService } from './services/address-book.service';
 
 @Component({
   selector: 'app-invite',
@@ -22,17 +24,20 @@ import { SearchComponent } from 'src/app/shared/components/search/search.compone
   standalone: true,
 })
 export class InviteComponent {
-  constructor(public dataService: DataService) {}
+  constructor(
+    public invitationService: InvitationService,
+    public addressBookService: AddressBookService
+  ) {}
 
   invite(contact: any) {
-    this.dataService.invite(contact);
+    this.invitationService.invite(contact);
   }
 
   inviteGroup(group: any) {
-    this.dataService.inviteGroup(group);
+    this.invitationService.inviteGroup(group);
   }
 
   filterContacts(value: string) {
-    this.dataService.onSearch(value);
+    this.addressBookService.onSearch(value);
   }
 }

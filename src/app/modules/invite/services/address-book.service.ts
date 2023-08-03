@@ -16,9 +16,11 @@ import { DataService } from 'src/app/shared/services/data.service';
 })
 export class AddressBookService {
   public groups$: BehaviorSubject<Group[]> = new BehaviorSubject<Group[]>([]);
-  public addressBook$: BehaviorSubject<Group[]> = new BehaviorSubject<Group[]>(
-    []
-  );
+  public addressBook$: BehaviorSubject<Contact[]> = new BehaviorSubject<
+    Contact[]
+  >([]);
+
+  private _rawAddressBook: Contact[] = [];
 
   public filteredContacts$: Observable<Contact[]> = new Observable<Contact[]>();
 
@@ -31,7 +33,8 @@ export class AddressBookService {
         tap((entities: Contact[]) => {
           const groups = this.getUniqueGroups(entities);
           this.groups$.next(groups);
-          this.addressBook$.next(groups);
+          this.addressBook$.next(entities);
+          this._rawAddressBook = entities;
           this;
         })
       )
@@ -43,6 +46,7 @@ export class AddressBookService {
   }
 
   private getUniqueGroups(data: any[]): Group[] {
+    //
     const groupsWithChildRecords: Group[] = [];
 
     data.forEach((contact) => {
@@ -75,7 +79,7 @@ export class AddressBookService {
       debounceTime(250),
       switchMap((searchVal: string) => {
         return of(
-          data?.filter((entry: Contact) => {
+          this._rawAddressBook?.filter((entry: Contact) => {
             return (
               entry.company.includes(searchVal) ||
               entry.email.includes(searchVal) ||

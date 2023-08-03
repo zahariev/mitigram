@@ -4,7 +4,7 @@
       <app-search (search)="filterContacts($event)"></app-search>
     </div>
 
-    <app-list [data]="dataService.filteredContacts$ | async">
+    <app-list [data]="addressBookService.filteredContacts$ | async">
       <ng-template #content let-rowData>
         <button
           mat-flat-button
@@ -18,7 +18,7 @@
     </app-list>
   </mat-tab>
   <mat-tab label="Groups">
-    <app-list [data]="dataService.groups | async">
+    <app-list [data]="addressBookService.groups$ | async">
       <ng-template #item let-rowData>
         <p>
           {{ rowData.contacts.length + "records" }}
