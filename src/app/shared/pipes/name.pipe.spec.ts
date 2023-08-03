@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { FullNamePipe } from './name.pipe';
 import { Name } from '../models/addressBookEntry.model';
-fdescribe('FullNamePipe', () => {
+describe('FullNamePipe', () => {
   let pipe: FullNamePipe;
 
   beforeEach(() => {

@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';
 import { ModeSwitcherService } from 'src/app/shared/services/mode-switcher.service';
+import { SideBarState } from 'src/app/shared/models/sidebarState.model';
 
 describe('DefaultComponent', () => {
   let component: DefaultComponent;
@@ -73,7 +74,9 @@ describe('DefaultComponent', () => {
   it('should call sideBarToggler method and update sidebarToggle$ subject', () => {
     spyOn(component.sidebarToggle$, 'next');
     component.sideBarToggler('left');
-    expect(component.sidebarToggle$.next).toHaveBeenCalledWith('left');
+    expect(component.sidebarToggle$.next).toHaveBeenCalledWith(
+      'left' as unknown as SideBarState
+    );
   });
 
   it('should update drawerState', () => {
