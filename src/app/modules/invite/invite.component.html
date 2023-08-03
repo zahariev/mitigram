@@ -26,25 +26,16 @@
             {{ rowData?.name }}
             {{ rowData.contacts.length + "records" }}
 
-            <button
-              mat-flat-button
-              color="accent"
-              class="openButton"
+            <app-button
+              [primary]="true"
+              text="BUTTONS.INVITE""
               (click)="inviteGroup(rowData)"
             >
-              {{ "BUTTONS.INVITE" | translate }}
-            </button>
+
+            </app-button>
           </p>
         </li>
       </ul>
     </div>
   </mat-tab>
 </mat-tab-group>
-
-<div class="external-invite-container">
-  <div class="separator">or invite by email</div>
-
-  <!-- <app-external-user-invite
-      (onExternalUserInvite)="inviteUser($event)"
-    ></app-external-user-invite> -->
-</div>

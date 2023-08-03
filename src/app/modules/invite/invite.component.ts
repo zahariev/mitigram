@@ -10,6 +10,7 @@ import { SearchComponent } from 'src/app/shared/components/search/search.compone
 import { AddressBookService } from 'src/app/shared/services/address-book.service';
 import { TreeComponent } from './tree/tree.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { EmailComponent } from './email/email.component';
 
 @Component({
   selector: 'app-invite',
@@ -24,6 +25,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ListComponent,
     SearchComponent,
     TreeComponent,
+    EmailComponent,
   ],
   standalone: true,
 })
