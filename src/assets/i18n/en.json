@@ -7,6 +7,15 @@
       "REQUIRED": "This field is required"
     }
   },
+  "BUTTONS": {
+    "CANCEL": "Cancel",
+    "CLEAR": "Clear All",
+    "CREATE": "Create",
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "INVITE": "Invite",
+    "SEND": "Send"
+  },
   "USER_DETAILS": {
     "MENU_LINK": "User Details"
   },

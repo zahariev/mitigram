@@ -20,7 +20,7 @@
     class="sendButton"
     (click)="sendInvitations()"
   >
-    Send
+    {{ "BUTTONS.SEND" | translate }}
   </button>
   <button
     *ngIf="invitationService.invitedContacts().size > 0"
@@ -28,6 +28,6 @@
     class="clearButton"
     (click)="clearAllInvitations()"
   >
-    Clear All
+    {{ "BUTTONS.CLEAR" | translate }}
   </button>
 </div>

@@ -9,6 +9,7 @@ import { ListComponent } from '../list/list.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-invite-list',
@@ -19,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     FullNamePipe,
     MatIconModule,
+    TranslateModule,
     ListComponent,
     MatInputModule,
     MatFormFieldModule,
