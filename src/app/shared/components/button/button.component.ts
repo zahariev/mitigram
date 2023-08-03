@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [MatButtonModule],
 })
-export class ButttonComponent {
+export class ButtonComponent {
   @Input() text: string = '';
   @Input() primary: boolean = false;
   @Input() disabled: boolean = false;
