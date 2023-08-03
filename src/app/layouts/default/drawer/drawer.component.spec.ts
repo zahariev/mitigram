@@ -48,7 +48,7 @@ fdescribe('DrawerComponent', () => {
   });
   it('should emit correct state when toggleSideBar is called', () => {
     spyOn(component.drawerState, 'emit');
-    component.toggleSideBar('left', true);
+    component.toggleSideBar('left');
     expect(component.drawerState.emit).toHaveBeenCalledWith({
       left: true,
       right: false,
@@ -56,9 +56,9 @@ fdescribe('DrawerComponent', () => {
     component.toggleSideBar('left', false);
     expect(component.drawerState.emit).toHaveBeenCalledWith({
       left: false,
-      right: true,
+      right: false,
     } as DrawerState);
-    component.toggleSideBar('left', null);
+    component.toggleSideBar('right', null);
     expect(component.drawerState.emit).toHaveBeenCalledWith({
       left: false,
       right: true,
