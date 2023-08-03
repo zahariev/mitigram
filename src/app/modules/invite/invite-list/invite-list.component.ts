@@ -13,6 +13,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 import { EmailComponent } from '../email/email.component';
 import { SeparatorComponent } from 'src/app/shared/components/separator/separator.component';
+import { SearchComponent } from 'src/app/shared/components/search/search.component';
 
 @Component({
   selector: 'app-invite-list',
@@ -31,6 +32,7 @@ import { SeparatorComponent } from 'src/app/shared/components/separator/separato
     ButtonComponent,
     EmailComponent,
     SeparatorComponent,
+    SearchComponent,
   ],
   standalone: true,
 })
@@ -46,5 +48,11 @@ export class InviteListComponent {
   }
   clearAllInvitations() {
     this.invitationService.clearAllInvitations();
+  }
+
+  inviteByMail(email: string) {
+    console.log(email);
+
+    this.invitationService.inviteByMail(email);
   }
 }

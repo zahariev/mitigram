@@ -1,31 +1,32 @@
 <div class="search-box">
-    <button class="search-btn" [hidden]="isExpanded" (click)="toggleSearch()">
-        <mat-icon>search</mat-icon>
-    </button>
-    <input
-        #searchInput
-        autofocus
-        type="text"
-        matInput
-        [class.expanded]="isExpanded"
-        [(ngModel)]="value"
-        placeholder="{{placeholder|translate}}"
-        (keyup)="onKeyup($event)"
-        onblur="this.focus()"
-        class="search-input"
-        matInput
-        [placeholder]="placeholder"
-    />
+  <button
+    class="search-btn"
+    [hidden]="isExpanded || !expandable"
+    (click)="toggleSearch()"
+  >
+    <mat-icon class="icon material-icons-outlined">{{ icon }}</mat-icon>
+  </button>
+  <input
+    tabindex="-1"
+    autofocus="false"
+    #searchInput
+    type="text"
+    matInput
+    [class.expanded]="isExpanded || !expandable"
+    [(ngModel)]="value"
+    placeholder="{{ placeholder | translate }}"
+    (keyup)="onKeyup($event)"
+    class="search-input"
+  />
 
-    <button
-        class="search-close"
-        matSuffix
-        mat-icon-button
-        aria-label="Clear"
-        (click)="clearSelection()"
-        [hidden]="!isExpanded"
-    >
-        <mat-icon style="color: white">close</mat-icon>
-    </button>
+  <button
+    class="search-close"
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="clearSelection()"
+    *ngIf="value.length !== 0"
+  >
+    <mat-icon style="color: white">close</mat-icon>
+  </button>
 </div>
-

@@ -36,6 +36,9 @@ export class SearchComponent {
   @ViewChild('searchInput') inputBox!: ElementRef<HTMLInputElement>;
 
   @Input() placeholder = 'Search';
+  @Input() expandable = false;
+  @Input() icon = 'search';
+  @Input() autoFocus = false;
   @Input() set setMe(value: string) {
     this.value = value;
     if (this.value.length > 0) this.isExpanded = true;
@@ -48,7 +51,7 @@ export class SearchComponent {
   @HostListener('window:keydown', ['$event'])
   keyEvent(_event: KeyboardEvent): void {
     // this.isExpanded = true;
-    this.inputBox.nativeElement.focus();
+    // if (this.autoFocus) this.inputBox.nativeElement.focus();
   }
 
   isExpanded = false;
@@ -86,6 +89,11 @@ export class SearchComponent {
         return;
       }
 
+      if (event.key === 'Enter') {
+        this.command.emit(this.value.trim());
+        this.clearSelection();
+        return;
+      }
       if (this.inputBox.nativeElement.value.length > 0) this.isExpanded = true;
       else this.isExpanded = false;
 

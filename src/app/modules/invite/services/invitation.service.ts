@@ -31,4 +31,17 @@ export class InvitationService {
   clearAllInvitations() {
     this.invitedContacts.mutate((values) => values.clear());
   }
+
+  inviteByMail(email: string) {
+    if (!email) return;
+    if (this.validateEmail(email)) {
+      const contact = new AddressBookEntry({ email });
+      this.invitedContacts.mutate((values) => values.add(contact));
+    }
+  }
+
+  validateEmail(email: string): boolean {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
 }

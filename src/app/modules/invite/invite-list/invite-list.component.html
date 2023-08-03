@@ -1,6 +1,12 @@
 <div id="container">
   <div *ngIf="invitationService.invitedContacts().size > -1" class="title">
-    <mat-icon id="invitee_icon">group_add</mat-icon>
+    <div class="add-by-mail">
+      <app-search
+        placeholder="invite by e-mail"
+        icon="mail"
+        (command)="inviteByMail($event)"
+      ></app-search>
+    </div>
 
     <app-separator text="INVITE_LIST.TITLE"></app-separator>
 

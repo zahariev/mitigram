@@ -3,7 +3,7 @@ export interface Name {
   last: string;
 }
 
-export interface AddressBookEntry {
+export class AddressBookEntry {
   _id: number;
   picture: string;
   name: Name;
@@ -11,4 +11,14 @@ export interface AddressBookEntry {
   email: string;
   phone: string;
   groups: string[];
+
+  constructor(data: any) {
+    this._id = data._id;
+    this.picture = data.picture || '';
+    this.name = data.name || { first: 'guest', last: '' };
+    this.company = data.company || '';
+    this.email = data.email || '';
+    this.phone = data.phone || '';
+    this.groups = data.groups || [];
+  }
 }
