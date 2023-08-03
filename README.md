@@ -22,6 +22,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 TODO: later this day:
 
 - add counterparty by email only.
-- add checklist tree for groupList data to be able to select partially group members
-- Confirmation Dialog before sending emails
-- clear console.logs
+- add checklist tree for groupList data to be able to select partially group members.
+- Confirmation Dialog before sending emails.
+- clear console.logs.
+- write tests for NamePipe.
