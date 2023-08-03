@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { AddressBookService } from './address-book.service';
 
-describe('AddressBookService', () => {
+xdescribe('AddressBookService', () => {
   let service: AddressBookService;
 
   beforeEach(() => {

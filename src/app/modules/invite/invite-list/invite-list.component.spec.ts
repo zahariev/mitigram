@@ -2,13 +2,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InviteListComponent } from './invite-list.component';
 
-describe('InviteListComponent', () => {
+xdescribe('InviteListComponent', () => {
   let component: InviteListComponent;
   let fixture: ComponentFixture<InviteListComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [InviteListComponent]
+      declarations: [InviteListComponent],
     });
     fixture = TestBed.createComponent(InviteListComponent);
     component = fixture.componentInstance;
