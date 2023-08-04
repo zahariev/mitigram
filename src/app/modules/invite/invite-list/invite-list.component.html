@@ -14,18 +14,20 @@
 
     <app-separator text="INVITE_LIST.TITLE"></app-separator>
 
-    <app-list [data]="invitationService.invitedContacts()">
-      <ng-template #content let-rowData>
-        <button
-          mat-icon-button
-          color="accent"
-          class="removeButton"
-          (click)="removeInvitation(rowData)"
-        >
-          <mat-icon>close</mat-icon>
-        </button>
-      </ng-template>
-    </app-list>
+    <div class="scroll-container">
+      <app-list [data]="invitationService.invitedContacts()">
+        <ng-template #content let-rowData>
+          <button
+            mat-icon-button
+            color="accent"
+            class="removeButton"
+            (click)="removeInvitation(rowData)"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </ng-template>
+      </app-list>
+    </div>
 
     <hr />
     <div class="buttons">

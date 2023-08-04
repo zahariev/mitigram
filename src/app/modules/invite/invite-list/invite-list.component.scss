@@ -8,6 +8,10 @@
   // display: flex;
   // flex-direction: column;
 
+  .scroll-container {
+    overflow: auto;
+    max-height: 58vh;
+  }
   .add-by-mail {
     display: flex;
     width: 100%;
