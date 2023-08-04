@@ -7,7 +7,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { ListComponent } from './list/list.component';
 import { SearchComponent } from 'src/app/core/components/search/search.component';
 import { AddressBookService } from 'src/app/shared/services/address-book.service';
-import { TreeComponent } from './tree/tree.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { EmailComponent } from './email/email.component';
 import { ButtonComponent } from 'src/app/core/components/button/button.component';
@@ -28,11 +27,9 @@ import { TREE_DATA } from 'src/app/layouts/default/models/main';
     MatButtonModule,
     ListComponent,
     SearchComponent,
-    TreeComponent,
     EmailComponent,
     ButtonComponent,
     MatSnackBarModule,
-    TreeMenuComponent,
   ],
   standalone: true,
 })
