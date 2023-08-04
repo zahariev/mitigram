@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {
   BehaviorSubject,
   Observable,
@@ -15,15 +16,11 @@ import {
 export class SnackbarService {
   private showMessage$: BehaviorSubject<string> = new BehaviorSubject('');
 
-  getInstance(): Observable<string> {
-    return this.showMessage$.asObservable();
-  }
+  constructor(private snackBar: MatSnackBar) {}
 
-  showMessage(msg: string): void {
-    this.showMessage$.next(msg);
-  }
-
-  hide(): void {
-    this.showMessage$.next('');
+  showMessage(message: string, action: string = '', duration = 1500) {
+    this.snackBar.open(message, action, {
+      duration,
+    });
   }
 }

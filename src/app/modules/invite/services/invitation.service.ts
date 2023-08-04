@@ -45,14 +45,19 @@ export class InvitationService {
     } else this.openSnackBar('Invalid email', '');
   }
 
+  sendInvites() {
+    this.openSnackBar('Invitations email sent', '', 3000);
+    this.clearAllInvitations();
+  }
+
   validateEmail(email: string): boolean {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
   }
 
-  openSnackBar(message: string, action: string) {
+  openSnackBar(message: string, action: string, duration = 1500) {
     this._snackBar.open(message, action, {
-      duration: 1500,
+      duration,
       panelClass: ['snackbar'],
     });
   }

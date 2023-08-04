@@ -34,8 +34,6 @@ import { TREE_DATA } from 'src/app/layouts/default/models/main';
   standalone: true,
 })
 export class InviteComponent {
-  treeData = TREE_DATA;
-
   constructor(
     private _snackBar: MatSnackBar,
     public invitationService: InvitationService,
@@ -43,15 +41,13 @@ export class InviteComponent {
   ) {}
 
   invite(contact: any) {
-    console.log(contact);
-
     this.invitationService.invite(contact);
-    this.openSnackBar('Successfully added user', '');
+    // this.openSnackBar('Successfully added user', '');
   }
 
   inviteGroup(group: any) {
     this.invitationService.inviteGroup(group);
-    this.openSnackBar('Successfully added group', '');
+    // this.openSnackBar('Successfully added group', '');
   }
 
   filterContacts(value: string) {
