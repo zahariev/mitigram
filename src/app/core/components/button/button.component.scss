@@ -1,0 +1,40 @@
+@use "sass:map";
+@import "../../../../styles/main/default.scss";
+
+.btn {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid map.get($theme-value-map, "secondary", 300);
+  border-radius: 0.25rem;
+  cursor: pointer;
+
+  background-color: map.get($theme-value-map, "secondary", 50);
+  color: map.get($theme-value-map, "secondary", 800);
+  font-weight: 600;
+
+  &:hover {
+    background-color: map.get($theme-value-map, "secondary", 300);
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  &.primary {
+    border: none;
+    background-color: map.get($theme-value-map, "primary", 600);
+    color: map.get($theme-value-map, "secondary", 50);
+    font-weight: 600;
+    text-shadow: -1px 2px 6px map.get($theme-value-map, "primary", 700);
+
+    &:hover {
+      background-color: map.get($theme-value-map, "primary", 700);
+    }
+
+    &.disabled {
+      background-color: map.get($theme-value-map, "secondary", 100);
+      text-shadow: none;
+      color: map.get($theme-value-map, "secondary", 800);
+      border: 1px solid map.get($theme-value-map, "secondary", 500);
+    }
+  }
+}

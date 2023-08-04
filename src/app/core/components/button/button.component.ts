@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-button',
@@ -7,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [MatButtonModule],
+  imports: [MatButtonModule, TranslateModule],
 })
 export class ButtonComponent {
   @Input() text: string = '';

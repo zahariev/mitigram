@@ -6,6 +6,9 @@
         icon="mail"
         (command)="inviteByMail($event)"
       ></app-search>
+      <app-button [primary]="true">
+        {{ "BUTTONS.INVITE" | translate }}
+      </app-button>
     </div>
 
     <app-separator text="INVITE_LIST.TITLE"></app-separator>
@@ -33,16 +36,14 @@
       >
         {{ "BUTTONS.CLEAR" | translate }}
       </button>
-
-      <button
+      <app-button
         [disabled]="invitationService.invitedContacts().size === 0"
-        mat-raised-button
-        color="accent"
-        class="sendButton"
+        [primary]="true"
+        text="BUTTONS.SEND"
         (click)="sendInvitations()"
       >
         {{ "BUTTONS.SEND" | translate }}
-      </button>
+      </app-button>
     </div>
   </div>
 </div>

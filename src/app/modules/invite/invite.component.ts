@@ -13,6 +13,8 @@ import { EmailComponent } from './email/email.component';
 import { ButtonComponent } from 'src/app/core/components/button/button.component';
 
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { TreeMenuComponent } from 'src/app/layouts/default/tree-menu/tree-menu.component';
+import { TREE_DATA } from 'src/app/layouts/default/models/main';
 
 @Component({
   selector: 'app-invite',
@@ -30,10 +32,13 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     EmailComponent,
     ButtonComponent,
     MatSnackBarModule,
+    TreeMenuComponent,
   ],
   standalone: true,
 })
 export class InviteComponent {
+  treeData = TREE_DATA;
+
   constructor(
     private _snackBar: MatSnackBar,
     public invitationService: InvitationService,
@@ -49,6 +54,7 @@ export class InviteComponent {
 
   inviteGroup(group: any) {
     this.invitationService.inviteGroup(group);
+    this.openSnackBar('Successfully added group', '');
   }
 
   filterContacts(value: string) {
