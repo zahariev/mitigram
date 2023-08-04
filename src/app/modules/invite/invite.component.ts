@@ -56,7 +56,7 @@ export class InviteComponent {
   }
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
-      // duration: 2000,
+      duration: 1500,
       panelClass: ['snackbar'],
     });
   }
