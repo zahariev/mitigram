@@ -1,4 +1,5 @@
 import { Injectable, signal } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddressBookEntry } from 'src/app/shared/models/addressBookEntry.model';
 import { Group } from 'src/app/shared/models/group.model';
 
@@ -9,7 +10,7 @@ export class InvitationService {
   private _invitedContacts: Set<AddressBookEntry> = new Set();
   public invitedContacts = signal(this._invitedContacts);
 
-  constructor() {}
+  constructor(private _snackBar: MatSnackBar) {}
 
   inviteGroup(group: Group) {
     const contacts: AddressBookEntry[] = [];
@@ -41,11 +42,18 @@ export class InvitationService {
     if (this.validateEmail(email)) {
       const contact = new AddressBookEntry({ email });
       this.invitedContacts.mutate((values) => values.add(contact));
-    }
+    } else this.openSnackBar('Invalid email', '');
   }
 
   validateEmail(email: string): boolean {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 1500,
+      panelClass: ['snackbar'],
+    });
   }
 }

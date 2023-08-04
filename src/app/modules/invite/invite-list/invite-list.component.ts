@@ -36,6 +36,7 @@ import { SearchComponent } from 'src/app/core/components/search/search.component
   standalone: true,
 })
 export class InviteListComponent {
+  mailString = '';
   constructor(public invitationService: InvitationService) {}
 
   sendInvitations() {
@@ -49,9 +50,12 @@ export class InviteListComponent {
     this.invitationService.clearAllInvitations();
   }
 
-  inviteByMail(email: string) {
-    console.log(email);
+  inviteByMailClick(event: MouseEvent) {
+    console.log(event);
 
-    this.invitationService.inviteByMail(email);
+    event.stopPropagation();
+  }
+  inviteByMail(email: string) {
+    this.invitationService.inviteByMail(this.mailString);
   }
 }

@@ -5,10 +5,11 @@
         placeholder="invite by e-mail"
         icon="mail"
         (command)="inviteByMail($event)"
+        (search)="mailString = $event"
       ></app-search>
-      <app-button [primary]="true">
+      <!-- <app-button [primary]="true" (click)="inviteByMailClick($event)">
         {{ "BUTTONS.INVITE" | translate }}
-      </app-button>
+      </app-button> -->
     </div>
 
     <app-separator text="INVITE_LIST.TITLE"></app-separator>
