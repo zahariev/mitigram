@@ -1,5 +1,6 @@
 .mat-toolbar {
   position: absolute;
+  color: var(--header-text-active-color);
   // background-color: #a50041 !important;
   z-index: 0;
   top: 0px;
@@ -20,11 +21,6 @@
     padding-right: 2px;
     padding-top: 0.2%;
   }
-}
-
-app-search {
-  position: relative;
-  margin-left: 65%;
 }
 
 :host ::ng-deep {

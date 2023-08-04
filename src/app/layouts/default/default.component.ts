@@ -50,12 +50,14 @@ export class DefaultComponent {
     this.user = { id: 1, firstName: 'User' };
     // });
     this.sideBarToggler('left');
-    // this.drawerState.right = true;
-    effect(() => {
-      this.invitationService.invitedContacts().size > 0
-        ? this.makeRightVisible(true)
-        : this.makeRightVisible(false);
-    });
+
+    // If list is emty, hide right sidebar
+
+    // effect(() => {
+    //   this.invitationService.invitedContacts().size > 0
+    //     ? this.makeRightVisible(true)
+    //     : this.makeRightVisible(false);
+    // });
   }
 
   sideBarToggler(side: string, position: boolean | null = null): void {
