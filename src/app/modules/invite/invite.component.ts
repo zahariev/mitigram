@@ -2,16 +2,17 @@ import { InvitationService } from './services/invitation.service';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FullNamePipe } from 'src/app/shared/pipes/name.pipe';
-import { DataService } from 'src/app/shared/services/data.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 import { ListComponent } from './list/list.component';
-import { SearchComponent } from 'src/app/shared/components/search/search.component';
+import { SearchComponent } from 'src/app/core/components/search/search.component';
 import { AddressBookService } from 'src/app/shared/services/address-book.service';
 import { TreeComponent } from './tree/tree.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { EmailComponent } from './email/email.component';
-import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+import { ButtonComponent } from 'src/app/core/components/button/button.component';
+
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-invite',
@@ -28,17 +29,22 @@ import { ButtonComponent } from 'src/app/shared/components/button/button.compone
     TreeComponent,
     EmailComponent,
     ButtonComponent,
+    MatSnackBarModule,
   ],
   standalone: true,
 })
 export class InviteComponent {
   constructor(
+    private _snackBar: MatSnackBar,
     public invitationService: InvitationService,
     public addressBookService: AddressBookService
   ) {}
 
   invite(contact: any) {
+    console.log(contact);
+
     this.invitationService.invite(contact);
+    this.openSnackBar('Successfully added user', '');
   }
 
   inviteGroup(group: any) {
@@ -47,5 +53,11 @@ export class InviteComponent {
 
   filterContacts(value: string) {
     this.addressBookService.onSearch(value);
+  }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      // duration: 2000,
+      panelClass: ['snackbar'],
+    });
   }
 }

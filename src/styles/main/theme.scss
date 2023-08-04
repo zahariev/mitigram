@@ -7,7 +7,6 @@
 
 @import "_light-palette";
 @import "_dark-palette";
-@import "_css-variables";
 
 // Theme Config
 $mat-primary: (
@@ -77,3 +76,9 @@ $mat-warn: (
 $theme-warn: mat.define-palette($mat-warn, main, lighter, darker);
 
 @import "./elements/__elements";
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  background-color: var(--notification) !important;
+}
+
+@import "_css-variables";
