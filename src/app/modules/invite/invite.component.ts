@@ -8,7 +8,6 @@ import { ListComponent } from './list/list.component';
 import { SearchComponent } from 'src/app/core/components/search/search.component';
 import { AddressBookService } from 'src/app/shared/services/address-book.service';
 import { TranslateModule } from '@ngx-translate/core';
-import { EmailComponent } from './email/email.component';
 import { ButtonComponent } from 'src/app/core/components/button/button.component';
 
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
@@ -27,7 +26,6 @@ import { TREE_DATA } from 'src/app/layouts/default/models/main';
     MatButtonModule,
     ListComponent,
     SearchComponent,
-    EmailComponent,
     ButtonComponent,
     MatSnackBarModule,
   ],
