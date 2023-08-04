@@ -1,8 +1,13 @@
-ul {
-  margin: 0;
-  padding-top: 20px;
-}
-li {
-  position: relative;
-  height: 50px;
+.scroll-container {
+  height: 100%; /* Adjust the height as needed */
+  // overflow: auto;
+
+  ul {
+    margin: 0;
+    padding-top: 20px;
+  }
+  li {
+    position: relative;
+    height: 50px;
+  }
 }

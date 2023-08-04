@@ -1,21 +1,23 @@
-<ul>
-  <li *ngFor="let rowData of data; trackBy: trackById">
-    <div class="name" *ngIf="rowData?.name">
-      {{ rowData?.name | fullName }}
-    </div>
+<div class="scroll-container">
+  <ul>
+    <li *ngFor="let rowData of data; trackBy: trackById">
+      <div class="name" *ngIf="rowData?.name">
+        {{ rowData?.name | fullName }}
+      </div>
 
-    <div class="email">
-      {{ rowData.email }}
-    </div>
+      <div class="email">
+        {{ rowData.email }}
+      </div>
 
-    <ng-template
-      [ngTemplateOutlet]="item"
-      [ngTemplateOutletContext]="{ $implicit: rowData }"
-    >
-    </ng-template>
-    <ng-template
-      [ngTemplateOutlet]="content"
-      [ngTemplateOutletContext]="{ $implicit: rowData }"
-    ></ng-template>
-  </li>
-</ul>
+      <ng-template
+        [ngTemplateOutlet]="item"
+        [ngTemplateOutletContext]="{ $implicit: rowData }"
+      >
+      </ng-template>
+      <ng-template
+        [ngTemplateOutlet]="content"
+        [ngTemplateOutletContext]="{ $implicit: rowData }"
+      ></ng-template>
+    </li>
+  </ul>
+</div>
