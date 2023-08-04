@@ -10,10 +10,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+import { ButtonComponent } from 'src/app/core/components/button/button.component';
 import { EmailComponent } from '../email/email.component';
-import { SeparatorComponent } from 'src/app/shared/components/separator/separator.component';
-import { SearchComponent } from 'src/app/shared/components/search/search.component';
+import { SeparatorComponent } from 'src/app/core/components/separator/separator.component';
+import { SearchComponent } from 'src/app/core/components/search/search.component';
 
 @Component({
   selector: 'app-invite-list',

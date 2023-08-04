@@ -1,0 +1,3 @@
+<ng-container *ngIf="msgInstance$ | async; let msg">
+  <div id="snackbar" [class.show]="!!msg">{{ msg }}</div>
+</ng-container>

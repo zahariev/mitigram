@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { SeparatorComponent } from 'src/app/shared/components/separator/separator.component';
+import { SeparatorComponent } from 'src/app/core/components/separator/separator.component';
 
 @Component({
   selector: 'app-email',
