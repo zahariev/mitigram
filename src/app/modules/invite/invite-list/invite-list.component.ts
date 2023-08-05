@@ -68,7 +68,7 @@ export class InviteListComponent {
     this.invitationService.clearAllInvitations();
   }
 
-  inviteByMail(email: string) {
+  inviteByMail() {
     this.invitationService.inviteByMail(this.mailString);
   }
 
