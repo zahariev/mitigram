@@ -74,7 +74,11 @@ export class InviteListComponent {
 
   openDialog(): void {
     const data = this.invitationService.invitedContacts();
-    const dialogRef = this.dialog.open(DialogComponent, { data });
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '40vw',
+      // height: '50vh',
+      data,
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
       this.invitationService.sendInvites();

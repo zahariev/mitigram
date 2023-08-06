@@ -1,1 +1,19 @@
-<p>dialog works!</p>
+<div class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="closeDialog()">&times;</span>
+    <h2 class="text-bold headline">Emails will be sent to:</h2>
+    <ul class="invitations-list-container">
+      <ng-container *ngFor="let user of data">
+        <li>{{ user.email }}</li>
+      </ng-container>
+    </ul>
+    <div class="actions-container">
+      <app-button [primary]="true">
+        {{ "BUTTONS.SUBMIT" | translate }}
+      </app-button>
+    </div>
+  </div>
+</div>
+
+<!--  -->

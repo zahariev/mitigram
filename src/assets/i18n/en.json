@@ -17,7 +17,8 @@
     "DELETE": "Delete",
     "EDIT": "Edit",
     "INVITE": "Invite",
-    "SEND": "Send"
+    "SEND": "Send",
+    "SUBMIT": "Submit"
   },
   "USER_DETAILS": {
     "MENU_LINK": "User Details"
