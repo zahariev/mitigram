@@ -80,8 +80,8 @@ export class InviteListComponent {
       data,
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      this.invitationService.sendInvites();
+    dialogRef.afterClosed().subscribe((confirmation) => {
+      if (confirmation) this.invitationService.sendInvites();
     });
   }
 }

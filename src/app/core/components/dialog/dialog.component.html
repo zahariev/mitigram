@@ -9,7 +9,7 @@
       </ng-container>
     </ul>
     <div class="actions-container">
-      <app-button [primary]="true">
+      <app-button [primary]="true" (click)="submit()">
         {{ "BUTTONS.SUBMIT" | translate }}
       </app-button>
     </div>

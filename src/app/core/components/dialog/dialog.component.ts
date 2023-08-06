@@ -36,14 +36,10 @@ export class DialogComponent {
   ) {}
 
   closeDialog(): void {
-    // this.invitationsService.invitationsDialogOpened$.next(false);
+    this.dialogRef.close();
   }
 
   submit(): void {
-    alert('Mock submit');
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(true);
   }
 }
