@@ -57,4 +57,7 @@ export class InviteComponent {
       panelClass: ['snackbar'],
     });
   }
+  trackById(index: number, item: any): any {
+    return item.key;
+  }
 }

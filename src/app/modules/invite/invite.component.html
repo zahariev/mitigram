@@ -22,7 +22,12 @@
     <div class="groupList">
       <!-- <app-tree></app-tree> -->
       <ul>
-        <li *ngFor="let rowData of addressBookService.groups$ | async">
+        <li
+          *ngFor="
+            let rowData of addressBookService.groups$ | async;
+            trackBy: trackById
+          "
+        >
           <p class="groupName">
             {{ rowData?.name }}
             {{ rowData.contacts.length + "records" }}
