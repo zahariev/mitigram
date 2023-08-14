@@ -4,8 +4,8 @@
     <span class="close" (click)="closeDialog()">&times;</span>
     <h2 class="text-bold headline">Emails will be sent to:</h2>
     <ul class="invitations-list-container">
-      <ng-container *ngFor="let user of data">
-        <li>{{ user.email }}</li>
+      <ng-container *ngFor="let email of data">
+        <li>{{ email }}</li>
       </ng-container>
     </ul>
     <div class="actions-container">
