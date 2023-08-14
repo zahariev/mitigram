@@ -23,7 +23,13 @@
     <app-tree
       [data]="addressBookService.groups$ | async"
       (selected)="setSelection($event)"
+      [clearSelection]="clearSelection"
     ></app-tree>
+    <p>
+      {{ selection.length }}
+      {{ "BUTTONS.INVITEES_SELECTED" | translate }}
+    </p>
+
     <button
       mat-flat-button
       color="accent"

@@ -35,6 +35,7 @@ import { TreeComponent } from 'src/app/core/components/tree/tree.component';
 })
 export class InviteComponent {
   selection: string[] = [];
+  clearSelection = 0;
   constructor(
     private _snackBar: MatSnackBar,
     public invitationService: InvitationService,
@@ -48,11 +49,10 @@ export class InviteComponent {
 
   inviteSelectedContacts() {
     this.invitationService.inviteSelectedContacts(this.selection);
+    this.clearSelection++;
   }
 
   setSelection(contacts: any[]) {
-    console.log(contacts);
-
     this.selection = contacts.map((contact) => contact.email);
   }
   filterContacts(value: string) {

@@ -1,3 +1,4 @@
+import { InvitationService } from 'src/app/modules/invite/services/invitation.service';
 import { AddressBookEntry } from './../../../shared/models/addressBookEntry.model';
 import { SelectionModel } from '@angular/cdk/collections';
 import { FlatTreeControl } from '@angular/cdk/tree';
@@ -53,10 +54,11 @@ interface ContactFlatNode {
 export class TreeComponent {
   @Input() set data(data: any) {
     this.flattenData(data, null, 0);
-    console.log(data);
 
     this.dataSource.data = data;
-    console.log(this.dataSource.data);
+  }
+  @Input() set clearSelection(clear: number) {
+    this.checklistSelection.clear();
   }
   @Output() selected: EventEmitter<any> = new EventEmitter<any>();
 
@@ -87,9 +89,8 @@ export class TreeComponent {
 
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
-  constructor() {
-    // this.dataSource.data = this.data1;
-  }
+  constructor(public invitationService: InvitationService) {}
+  // this.dataSource.data = this.data1;
 
   hasChild = (_: number, node: ContactFlatNode) => node.expandable;
 
