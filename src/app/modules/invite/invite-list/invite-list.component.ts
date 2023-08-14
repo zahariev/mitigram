@@ -51,13 +51,10 @@ export class InviteListComponent {
   ) {}
 
   sendInvitations() {
-    console.log(this.mailString.length > 0);
-
     if (this.mailString.length > 0) {
       this.snackBar.showMessage('Email input is not empty!');
       return;
     }
-    console.log(this.invitationService.invitedContacts());
     this.openDialog();
   }
 
