@@ -10,39 +10,28 @@
           mat-flat-button
           color="accent"
           class="inviteButton"
-          (click)="invite(rowData)"
-          [disabled]="invitationService.isInvited(rowData)"
+          (click)="invite(rowData.email)"
+          [disabled]="invitationService.isInvited(rowData.email)"
         >
           {{ "BUTTONS.INVITE" | translate }}
         </button>
       </ng-template>
     </app-list>
   </mat-tab>
-  <mat-tab label="Groups">
-    <div class="groupList">
-      <!-- <app-tree></app-tree> -->
-      <ul>
-        <li
-          *ngFor="
-            let rowData of addressBookService.groups$ | async;
-            trackBy: trackById
-          "
-        >
-          <p class="groupName">
-            {{ rowData?.name }}
-            {{ rowData.contacts.length + "records" }}
 
-            <button
-              mat-flat-button
-              color="accent"
-              class="openButton"
-              (click)="inviteGroup(rowData)"
-            >
-              {{ "BUTTONS.INVITE" | translate }}
-            </button>
-          </p>
-        </li>
-      </ul>
-    </div>
+  <mat-tab label="{{ 'TAB.GROUPS' | translate }}">
+    <app-tree
+      [data]="addressBookService.groups$ | async"
+      (selected)="setSelection($event)"
+    ></app-tree>
+    <button
+      mat-flat-button
+      color="accent"
+      class="inviteButton"
+      (click)="inviteSelectedContacts()"
+      [disabled]="!selection.length"
+    >
+      {{ "BUTTONS.INVITE_SELECTED" | translate }}
+    </button>
   </mat-tab>
 </mat-tab-group>

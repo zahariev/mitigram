@@ -17,6 +17,7 @@
     "DELETE": "Delete",
     "EDIT": "Edit",
     "INVITE": "Invite",
+    "INVITE_SELECTED": "Invite Selected",
     "SEND": "Send",
     "SUBMIT": "Submit"
   },

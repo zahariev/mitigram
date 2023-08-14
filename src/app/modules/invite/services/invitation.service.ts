@@ -4,33 +4,35 @@ import { SnackbarService } from 'src/app/core/components/snackbar/snackbar.servi
 import { AddressBookEntry } from 'src/app/shared/models/addressBookEntry.model';
 import { Group } from 'src/app/shared/models/group.model';
 
+interface Invited {
+  name: string;
+  email: string;
+}
 @Injectable({
   providedIn: 'root',
 })
 export class InvitationService {
-  private _invitedContacts: Set<AddressBookEntry> = new Set();
+  private _invitedContacts: Set<string> = new Set();
   public invitedContacts = signal(this._invitedContacts);
 
   constructor(private snackBar: SnackbarService) {}
 
-  inviteGroup(group: Group) {
-    const contacts: AddressBookEntry[] = [];
-    group.contacts.forEach((contact) =>
+  inviteSelectedContacts(contacts: string[]) {
+    contacts.forEach((contact) =>
       this.invitedContacts.mutate((values) => values.add(contact))
     );
-
-    this.invitedContacts.mutate((values) => [...values, ...contacts]);
+    //this.invitedContacts.mutate((values) => [...values, ...contacts]);
   }
 
-  isInvited(contact: AddressBookEntry): boolean {
+  isInvited(contact: string): boolean {
     return this._invitedContacts.has(contact);
   }
 
-  invite(contact: AddressBookEntry) {
+  invite(contact: string) {
     this.invitedContacts.mutate((values) => values.add(contact));
   }
 
-  removeInvitation(contact: AddressBookEntry) {
+  removeInvitation(contact: string) {
     this.invitedContacts.mutate((values) => values.delete(contact));
   }
 
@@ -41,8 +43,7 @@ export class InvitationService {
   inviteByMail(email: string) {
     if (!email) return;
     if (this.validateEmail(email)) {
-      const contact = new AddressBookEntry({ email });
-      this.invitedContacts.mutate((values) => values.add(contact));
+      this.invitedContacts.mutate((values) => values.add(email));
     } else this.snackBar.showMessage('Invalid email', '');
   }
 

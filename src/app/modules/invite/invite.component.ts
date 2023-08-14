@@ -13,6 +13,7 @@ import { ButtonComponent } from 'src/app/core/components/button/button.component
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { TreeMenuComponent } from 'src/app/layouts/default/tree-menu/tree-menu.component';
 import { TREE_DATA } from 'src/app/layouts/default/models/main';
+import { TreeComponent } from 'src/app/core/components/tree/tree.component';
 
 @Component({
   selector: 'app-invite',
@@ -28,10 +29,12 @@ import { TREE_DATA } from 'src/app/layouts/default/models/main';
     SearchComponent,
     ButtonComponent,
     MatSnackBarModule,
+    TreeComponent,
   ],
   standalone: true,
 })
 export class InviteComponent {
+  selection: string[] = [];
   constructor(
     private _snackBar: MatSnackBar,
     public invitationService: InvitationService,
@@ -43,11 +46,15 @@ export class InviteComponent {
     // this.openSnackBar('Successfully added user', '');
   }
 
-  inviteGroup(group: any) {
-    this.invitationService.inviteGroup(group);
-    // this.openSnackBar('Successfully added group', '');
+  inviteSelectedContacts() {
+    this.invitationService.inviteSelectedContacts(this.selection);
   }
 
+  setSelection(contacts: any[]) {
+    console.log(contacts);
+
+    this.selection = contacts.map((contact) => contact.email);
+  }
   filterContacts(value: string) {
     this.addressBookService.onSearch(value);
   }

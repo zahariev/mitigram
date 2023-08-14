@@ -1,21 +1,21 @@
 <ul>
-  <li *ngFor="let rowData of data; trackBy: trackById">
-    <div class="name" *ngIf="rowData?.name">
+  <li *ngFor="let email of data; trackBy: trackById">
+    <!-- <div class="name" *ngIf="rowData?.name">
       {{ rowData?.name | fullName }}
-    </div>
+    </div> -->
 
     <div class="email">
-      {{ rowData.email }}
+      {{ email }}
     </div>
 
     <ng-template
       [ngTemplateOutlet]="item"
-      [ngTemplateOutletContext]="{ $implicit: rowData }"
+      [ngTemplateOutletContext]="{ $implicit: email }"
     >
     </ng-template>
     <ng-template
       [ngTemplateOutlet]="content"
-      [ngTemplateOutletContext]="{ $implicit: rowData }"
+      [ngTemplateOutletContext]="{ $implicit: email }"
     ></ng-template>
   </li>
 </ul>
